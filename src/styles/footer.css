@@ -1,0 +1,74 @@
+/* =========================================
+   Footer Styles - Black Minimal Version
+   ========================================= */
+
+.footer {
+    background-color: #F0EFEF;
+    color: #000;
+    padding: 70px 5% 30px;
+    margin-top: auto;
+}
+
+/* 내부 정렬 */
+.footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 60px;
+    flex-wrap: wrap;
+}
+
+/* 왼쪽 영역 */
+.footer-left img {
+    height: 40px;
+    width: auto;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.footer-left p {
+    font-size: 14px;
+    line-height: 1.6;
+    opacity: 0.7;
+    margin: 0;
+}
+
+/* 오른쪽 영역 */
+.footer-right {
+    display: flex;
+    gap: 60px;
+}
+
+.footer-right h4 {
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #ffffff;
+}
+
+/* 링크 공통 */
+.footer-right a {
+    display: block;
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 14px;
+    opacity: 0.6;
+    margin-bottom: 10px;
+    transition: 0.2s ease;
+}
+
+.footer-right a:hover {
+    opacity: 1;
+    padding-left: 4px;
+}
+
+/* 하단 카피라이트 */
+.copyright {
+    text-align: center;
+    font-size: 12px;
+    opacity: 0.4;
+    margin-top: 50px;
+}
