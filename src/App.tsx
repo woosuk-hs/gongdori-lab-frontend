@@ -3,7 +3,7 @@ import MainPage from "@/pages/main/MainPage";
 import Layout from "@components/Layout";
 
 import * as ChannelService from "@channel.io/channel-web-sdk-loader";
-import {CONFIG} from "@utils/config";
+import { CONFIG } from "@utils/config";
 
 function App() {
 
