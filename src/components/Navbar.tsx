@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import {RECRUIT, RECRUIT_YEAR} from "@utils/config.ts"
+import { CONFIG } from "@utils/config.ts"
 import "@styles/navbar.css"
 
 function Navbar() {
@@ -13,9 +13,9 @@ function Navbar() {
         <li><Link to="/qna">QNA</Link></li>
       </ul>
 
-      {RECRUIT && (
+      {CONFIG.RECRUIT && (
         <div className="nav-right-group">
-          <Link id="right" to="/recruit">{RECRUIT_YEAR} 지원하기</Link>
+          <Link id="right" to="/recruit">{CONFIG.RECRUIT_YEAR} 지원하기</Link>
         </div>
       )}
     </nav>
