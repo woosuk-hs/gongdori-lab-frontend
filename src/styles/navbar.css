@@ -194,7 +194,7 @@
 .navbar ul.container li a::after {
     content: "";
     position: absolute;
-    width: 0%;
+    width: 0;
     height: 2px;
     bottom: 0;
     left: 0;
