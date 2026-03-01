@@ -1,74 +1,72 @@
-/* =========================================
-   Footer Styles - Black Minimal Version
-   ========================================= */
-
+/* footer.css */
 .footer {
-    background-color: #F0EFEF;
-    color: #000;
-    padding: 70px 5% 30px;
-    margin-top: auto;
+    background-color: #F5F1E8;
+    color: #333;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 2rem 3rem;
+    border-top: 1px solid #ddd;
 }
 
-/* 내부 정렬 */
 .footer-inner {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 2rem;
     max-width: 1200px;
     margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    gap: 60px;
-    flex-wrap: wrap;
-}
-
-/* 왼쪽 영역 */
-.footer-left img {
-    height: 40px;
-    width: auto;
-    margin-bottom: 20px;
-    display: block;
 }
 
 .footer-left p {
-    font-size: 14px;
-    line-height: 1.6;
-    opacity: 0.7;
     margin: 0;
+    line-height: 1.6;
 }
 
-/* 오른쪽 영역 */
+.footer-left strong {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
 .footer-right {
     display: flex;
-    gap: 60px;
+    gap: 2rem;
 }
 
-.footer-right h4 {
-    font-size: 13px;
-    font-weight: 700;
-    margin-bottom: 15px;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: #ffffff;
+.footer-right div h4 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1rem;
 }
 
-/* 링크 공통 */
-.footer-right a {
+.footer-right div a {
     display: block;
+    color: #007ACC;
     text-decoration: none;
-    color: #ffffff;
-    font-size: 14px;
-    opacity: 0.6;
-    margin-bottom: 10px;
-    transition: 0.2s ease;
+    margin-bottom: 0.3rem;
+    transition: color 0.3s;
 }
 
-.footer-right a:hover {
-    opacity: 1;
-    padding-left: 4px;
+.footer-right div a:hover {
+    color: #005A99;
 }
 
-/* 하단 카피라이트 */
-.copyright {
+footer p.copyright {
+    width: 100%;
     text-align: center;
-    font-size: 12px;
-    opacity: 0.4;
-    margin-top: 50px;
+    margin-top: 1.5rem;
+    font-size: 0.85rem;
+    color: #666;
+}
+
+/* 모바일 대응 */
+@media (max-width: 768px) {
+    .footer-inner {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-right {
+        flex-direction: column;
+        gap: 1rem;
+        margin-top: 1rem;
+    }
 }

@@ -1,23 +1,42 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { CONFIG } from "@utils/config.ts"
-import "@styles/navbar.css"
+import "@styles/navbar.css";
 
 function Navbar() {
+  const [open, setOpen] = useState(false);
 
   return (
     <nav className="navbar">
-      <ul className="container" id="nav-menu">
-        <li><Link to="/">ABOUT</Link></li>
-        <li><Link to="/members">부원</Link></li>
-        <li><Link to="/activity">활동</Link></li>
-        <li><Link to="/qna">QNA</Link></li>
-      </ul>
-
-      {CONFIG.RECRUIT && (
-        <div className="nav-right-group">
-          <Link id="right" to="/recruit">{CONFIG.RECRUIT_YEAR} 지원하기</Link>
+      <div className="navbar-inner">
+        <div className="logo">
+          <Link to="/"><img src="/images/logo.svg" alt="로고" /></Link>
         </div>
-      )}
+
+        <div className={`nav-links ${open ? "open" : ""}`}>
+          <ul className="container" id="nav-menu">
+            <li><Link to="/">ABOUT</Link></li>
+            <li><Link to="/members">부원</Link></li>
+            <li><Link to="/activity">활동</Link></li>
+            <li><Link to="/qna">QNA</Link></li>
+          </ul>
+
+          {CONFIG.RECRUIT && (
+            <div className="nav-right-group">
+              <Link id="right" to="/recruit">{CONFIG.RECRUIT_YEAR} 지원하기</Link>
+            </div>
+          )}
+        </div>
+
+        <div
+          className={`hamburger ${open ? "active" : ""}`}
+          onClick={() => setOpen(!open)}
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
     </nav>
   );
 }
