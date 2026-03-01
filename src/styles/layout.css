@@ -1,13 +1,28 @@
-/* layout.css */
+/*.layout {*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    min-height: 100vh;*/
+/*    background-color: #FAF7F0;*/
+/*}*/
+
+/*.layout main {*/
+/*    flex: 1;*/
+/*    padding: 2rem 3rem;*/
+/*    max-width: 1200px;*/
+/*    margin: 0 auto;*/
+/*    width: 100%;*/
+/*    box-sizing: border-box;*/
+/*}*/
+
 .layout {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background-color: #fff;
+    background-color: var(--page-bg);
 }
 
 .layout main {
-    flex: 1; /* main이 남은 공간 차지 */
+    flex: 1;
     padding: 2rem 3rem;
     max-width: 1200px;
     margin: 0 auto;

@@ -15,10 +15,11 @@ function Navbar() {
 
         <div className={`nav-links ${open ? "open" : ""}`}>
           <ul className="container" id="nav-menu">
-            <li><Link to="/">ABOUT</Link></li>
-            <li><Link to="/members">부원</Link></li>
+            {/*<li><a href="#home">ABOUT</a></li>*/}
+            <li><Link to="#home">ABOUT</Link></li>
+            <li><Link to="#homea">부원</Link></li>
             <li><Link to="/activity">활동</Link></li>
-            <li><Link to="/qna">QNA</Link></li>
+            <li><Link to="/login">Login</Link></li>
           </ul>
 
           {CONFIG.RECRUIT && (

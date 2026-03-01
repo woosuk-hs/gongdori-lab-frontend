@@ -3,3 +3,17 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+:root {
+    --page-bg: #FAF7F0;
+
+    --footer-bg: #F5F1E8;
+    --footer-text: #4B4740;
+    --link-text: #6D5B4F;
+    --link-hover: #8C765E;
+
+    --button-bg: #D9CDBF;
+    --button-text: #FFFFFF;
+    --button-hover-bg: #C0B49A;
+    --button-hover-text: #FFFFFF;
+}

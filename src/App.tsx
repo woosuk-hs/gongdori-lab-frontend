@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
-import MainPage from "@/pages/main/MainPage";
+import MainPage from "@pages/main/MainPage";
 import Layout from "@components/Layout";
-import NotFoundPage from "pages/NotFoundPage.tsx";
+import NotFoundPage from "@pages/NotFoundPage.tsx";
 import { CONFIG } from "@utils/config";
 import * as ChannelService from "@channel.io/channel-web-sdk-loader";
 
