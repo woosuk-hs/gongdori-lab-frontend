@@ -1,3 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
+
+.noto-sans-kr {
+    font-family: "Noto Sans KR", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+.noto-body-light {
+    font-family: "Noto Sans KR", sans-serif;
+    font-weight: 300;
+}
+.noto-body-regular {
+    font-family: "Noto Sans KR", sans-serif;
+    font-weight: 400;
+}
+.noto-body-medium {
+    font-family: "Noto Sans KR", sans-serif;
+    font-weight: 500;
+}
+.noto-body-bold {
+    font-family: "Noto Sans KR", sans-serif;
+    font-weight: 700;
+}
+
+body, html {
+    font-family: "Noto Sans KR", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-weight: 400;
+}
+
 * {
     margin: 0;
     padding: 0;

@@ -1,11 +1,7 @@
-import { type SyntheticEvent, useState } from "react";
-import { api } from "@utils/api.ts";
+import { useState, type SyntheticEvent } from "react";
 import { useNavigate } from "react-router-dom";
-
-interface LoginResponse {
-  access: string;
-  refresh: string;
-}
+import { api } from "@utils/api.ts";
+import { Auth } from "@utils/auth.ts";
 
 function LoginPage() {
   const navigate = useNavigate();
@@ -23,16 +19,10 @@ function LoginPage() {
     }
 
     try {
-      const res = await api.post<LoginResponse>("/auth/login", { username, password });
-
-      localStorage.setItem("accessToken", res.data.access);
-      localStorage.setItem("refreshToken", res.data.refresh);
-
-      console.log("로그인 성공", res.data);
-
-      // navigate("/");
-      navigate("/profile");
-    } catch (err: unknown) {
+      const res = await api.post("/auth/login", { username, password });
+      Auth.login(res.data.access, res.data.refresh);
+      navigate("/profile", { replace: true });
+    } catch (err) {
       console.error(err);
       setError("아이디 또는 비밀번호가 틀렸습니다.");
     }
@@ -47,7 +37,7 @@ function LoginPage() {
           id="username"
           type="text"
           value={username}
-          onChange={(e) => setUsername(e.currentTarget.value)}
+          onChange={e => setUsername(e.currentTarget.value)}
           required
         />
         <label htmlFor="password">Password</label>
@@ -55,7 +45,7 @@ function LoginPage() {
           id="password"
           type="password"
           value={password}
-          onChange={(e) => setPassword(e.currentTarget.value)}
+          onChange={e => setPassword(e.currentTarget.value)}
           required
         />
         {error && <p className="error">{error}</p>}
