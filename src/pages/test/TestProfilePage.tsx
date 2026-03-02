@@ -19,7 +19,7 @@ function TestProfilePage() {
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        const res = await api.get<MemberResponseDTO>("/member/me");
+        const res = await api.get<MemberResponseDTO>("/members/me");
         setProfile(res.data);
       } catch (err) {
         console.error(err);
