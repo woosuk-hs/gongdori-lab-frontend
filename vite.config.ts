@@ -19,6 +19,7 @@ export default defineConfig(({ mode }) => {
       },
     },
     server: {
+      historyApiFallback: true,
       proxy: {
         '/api': {
           target: env.VITE_API_URL,

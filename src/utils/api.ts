@@ -1,7 +1,7 @@
 import axios, { type InternalAxiosRequestConfig, type AxiosError } from "axios";
-import { CONFIG } from "@utils/config.ts";
+import { CONFIG } from "./config";
 
-interface TokenRefreshResponse {
+interface TokenResponse {
     access: string;
     refresh: string;
 }
@@ -9,9 +9,7 @@ interface TokenRefreshResponse {
 export const api = axios.create({
     baseURL: CONFIG.API_URL,
     withCredentials: true,
-    headers: {
-        "Content-Type": "application/json",
-    },
+    headers: { "Content-Type": "application/json" },
 });
 
 api.interceptors.request.use((config: InternalAxiosRequestConfig) => {
@@ -25,43 +23,39 @@ api.interceptors.request.use((config: InternalAxiosRequestConfig) => {
 
 async function requestTokenRefresh(): Promise<string> {
     const refreshToken = localStorage.getItem("refreshToken");
-    if (!refreshToken) throw new Error("RefreshToken이 없습니다.");
+    if (!refreshToken) throw new Error("RefreshToken 없음");
 
-    const response = await api.post<TokenRefreshResponse>(
+    const res = await api.post<TokenResponse>(
       "/auth/refresh",
       null,
-      {
-          headers: { Authorization: `Bearer ${refreshToken}` },
-          withCredentials: true,
-      }
+      { headers: { Authorization: `Bearer ${refreshToken}` }, withCredentials: true }
     );
 
-    const { access, refresh } = response.data;
-    localStorage.setItem("accessToken", access);
-    localStorage.setItem("refreshToken", refresh);
+    localStorage.setItem("accessToken", res.data.access);
+    localStorage.setItem("refreshToken", res.data.refresh);
 
-    return access;
+    return res.data.access;
 }
 
 api.interceptors.response.use(
-  (response) => response,
-  async (error: AxiosError) => {
-      const originalRequest = error.config as InternalAxiosRequestConfig & { _retry?: boolean };
+  (res) => res,
+  async (err: AxiosError) => {
+      const originalRequest = err.config as InternalAxiosRequestConfig & { _retry?: boolean };
 
-      if (error.response?.status === 401 && !originalRequest._retry) {
+      if (err.response?.status === 401 && !originalRequest._retry) {
           originalRequest._retry = true;
           try {
-              const newAccessToken = await requestTokenRefresh();
+              const newToken = await requestTokenRefresh();
               originalRequest.headers = originalRequest.headers ?? {};
-              originalRequest.headers.Authorization = `Bearer ${newAccessToken}`;
+              originalRequest.headers.Authorization = `Bearer ${newToken}`;
               return api(originalRequest);
-          } catch (refreshError) {
+          } catch {
               localStorage.removeItem("accessToken");
               localStorage.removeItem("refreshToken");
               window.location.href = "/login";
-              return Promise.reject(refreshError);
+              return Promise.reject(err);
           }
       }
-      return Promise.reject(error);
+      return Promise.reject(err);
   }
 );
