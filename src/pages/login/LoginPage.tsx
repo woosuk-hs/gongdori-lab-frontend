@@ -7,6 +7,7 @@ function LoginPage() {
   const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [rememberMe, setRememberMe] = useState(false);
   const [error, setError] = useState("");
 
   const handleLogin = async (e: SyntheticEvent<HTMLFormElement>) => {
@@ -19,8 +20,12 @@ function LoginPage() {
     }
 
     try {
-      const res = await api.post("/auth/login", { username, password });
-      Auth.login(res.data.access, res.data.refresh);
+      const res = await api.post(`/auth/login?rememberMe=${rememberMe}`, {
+        username,
+        password
+      });
+
+      Auth.login(res.data.access, rememberMe);
       navigate("/profile", { replace: true });
     } catch (err) {
       console.error(err);
@@ -48,6 +53,14 @@ function LoginPage() {
           onChange={e => setPassword(e.currentTarget.value)}
           required
         />
+        <label>
+          <input
+            type="checkbox"
+            checked={rememberMe}
+            onChange={e => setRememberMe(e.currentTarget.checked)}
+          />
+          Remember Me
+        </label>
         {error && <p className="error">{error}</p>}
         <button type="submit">Login</button>
       </form>
