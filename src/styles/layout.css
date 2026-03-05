@@ -5,11 +5,3 @@
     background-color: var(--page-bg);
 }
 
-.layout main {
-    flex: 1;
-    padding: 2rem 3rem;
-    max-width: 1200px;
-    margin: 0 auto;
-    width: 100%;
-    box-sizing: border-box;
-}

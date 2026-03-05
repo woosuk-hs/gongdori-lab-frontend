@@ -1,6 +1,35 @@
+.main-page {
+    width: 100%;
+}
+
 .pages {
     height: 100vh;
+
     display: flex;
+    flex-direction: column;
+
     justify-content: center;
     align-items: center;
+}
+
+.logo {
+    width: 90px;
+    margin-bottom: 40px;
+}
+
+.pages h1 {
+    font-size: 64px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.pages p {
+    font-size: 20px;
+    opacity: 0.7;
+    margin-bottom: 40px;
+}
+
+.buttons {
+    display: flex;
+    gap: 20px;
 }
