@@ -7,7 +7,7 @@ function MainPage() {
 
       <section className="pages home" id="home">
 
-        <img src="/images/logo.svg" className="logo" />
+        <img src="/images/logo.svg" className="logo" alt="logo" />
 
         <h1>Gongdori Lab</h1>
 
