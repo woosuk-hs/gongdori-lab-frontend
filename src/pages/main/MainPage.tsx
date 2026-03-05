@@ -14,13 +14,8 @@ function MainPage() {
         <p>Developers who build the future</p>
 
         <div className="buttons">
-          <Link to="/recruit" className="btn-primary">
-            지원하기
-          </Link>
-
-          <a href="/#about" className="btn-ghost">
-            더 알아보기
-          </a>
+          <Link to="/recruit" className="btn-primary">지원하기</Link>
+          {/*<a href="/#about" className="btn-ghost">더 알아보기</a>*/}
         </div>
 
       </section>
