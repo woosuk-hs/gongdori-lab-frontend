@@ -21,7 +21,7 @@ function LoginPage() {
     setLoading(true);
     try {
       await LoginAPI.login({ username, password, rememberMe });
-      navigate("/profile", { replace: true });
+      navigate("/", { replace: true });
     } catch {
       setError("아이디 또는 비밀번호가 틀렸습니다.");
     } finally {
