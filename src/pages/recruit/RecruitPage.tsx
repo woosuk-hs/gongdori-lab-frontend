@@ -4,7 +4,10 @@ import { recruitAPI, type RecruitDTO } from "./api/recruitAPI";
 import "./styles/RecruitPage.css";
 import {CONFIG} from "@utils/config.ts";
 
-const LANGUAGE_OPTIONS = ["JavaScript", "TypeScript", "Python", "Java", "Kotlin", "C", "C++", "Go", "Rust", "Swift"];
+const LANGUAGE_OPTIONS = [
+  "Java", "Kotlin", "JavaScript", "TypeScript", "Python",
+  "C", "C++", "C#", "Go", "SQL"
+];
 
 function RecruitPage() {
   const navigate = useNavigate();
@@ -17,6 +20,25 @@ function RecruitPage() {
   });
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const [duplicateError, setDuplicateError] = useState("");
+  const [checkingId, setCheckingId] = useState(false);
+
+  const handleStudentIdChange = async (val: string) => {
+    setForm((p) => ({ ...p, studentId: val }));
+    setDuplicateError("");
+
+    if (val.length === 5) {
+      setCheckingId(true);
+      try {
+        await recruitAPI.findByStudentId(val);
+        setDuplicateError("이미 해당 학번으로 지원한 내역이 있어요.");
+      } catch {
+        //
+      } finally {
+        setCheckingId(false);
+      }
+    }
+  };
 
   const toggleLanguage = (lang: string) => {
     setForm((prev) => ({
@@ -31,10 +53,10 @@ function RecruitPage() {
     e.preventDefault();
     setError("");
 
-    // if (form.languages.length === 0) {
-    //   setError("사용 가능한 언어를 최소 1개 선택하세요.");
-    //   return;
-    // }
+    if (duplicateError) {
+      setError("이미 지원한 학번입니다.");
+      return;
+    }
 
     setLoading(true);
     try {
@@ -64,7 +86,7 @@ function RecruitPage() {
             value={form.studentId}
             onChange={(e) => {
               const val = e.target.value.replace(/\D/g, "").slice(0, 5);
-              setForm((p) => ({ ...p, studentId: val }));
+              handleStudentIdChange(val);
             }}
             maxLength={5}
             pattern="\d{5}"
@@ -73,6 +95,12 @@ function RecruitPage() {
           />
           {form.studentId.length > 0 && form.studentId.length < 5 && (
             <span className="field-hint error">학번은 5자리 숫자여야 합니다.</span>
+          )}
+          {checkingId && (
+            <span className="field-hint">확인 중...</span>
+          )}
+          {duplicateError && (
+            <span className="field-hint error">{duplicateError}</span>
           )}
         </div>
 
@@ -126,7 +154,7 @@ function RecruitPage() {
 
         {error && <p className="recruit-error">{error}</p>}
 
-        <button type="submit" className="recruit-submit" disabled={loading}>
+        <button type="submit" className="recruit-submit" disabled={loading || !!duplicateError || checkingId}>
           {loading ? "제출 중..." : "지원하기 →"}
         </button>
         <Link to="/recruit/check" className="recruit-check-link">

@@ -4,7 +4,7 @@
     justify-content: center;
     padding: 80px 24px 120px;
     background-color: var(--page-bg);
-    min-height: 100vh;
+    min-height: 70vh;
 }
 
 .check-card {
