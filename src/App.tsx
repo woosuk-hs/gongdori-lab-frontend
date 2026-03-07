@@ -17,9 +17,6 @@ function App() {
   ChannelService.loadScript()
   ChannelService.boot({ pluginKey: CONFIG.CHANNEL_KEY })
 
-  console.log(CONFIG.CHANNEL_KEY)
-
-
   return (
     <Routes>
       <Route element={<Layout />}>
