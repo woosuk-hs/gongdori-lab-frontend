@@ -1,9 +1,10 @@
 .check-page {
     display: flex;
-    align-items: flex-start;
+    align-items: anchor-center;
     justify-content: center;
     padding: 80px 24px 120px;
     background-color: var(--page-bg);
+    min-height: 100vh;
 }
 
 .check-card {
@@ -65,6 +66,7 @@
     outline: none;
     transition: border-color 0.15s, box-shadow 0.15s;
     letter-spacing: 0.1em;
+    min-width: 0;
 }
 
 .check-field input:focus {
@@ -85,6 +87,7 @@
     cursor: pointer;
     transition: background-color 0.15s;
     white-space: nowrap;
+    flex-shrink: 0;
 }
 
 .check-btn:hover:not(:disabled) {
@@ -134,12 +137,14 @@
     align-items: center;
     justify-content: space-between;
     margin-bottom: 8px;
+    gap: 8px;
 }
 
 .check-result__name {
     font-size: 16px;
     font-weight: 700;
     color: #1a1a1a;
+    word-break: keep-all;
 }
 
 .check-result__badge {
@@ -148,6 +153,7 @@
     border-radius: 100px;
     font-size: 12px;
     font-weight: 700;
+    flex-shrink: 0;
 }
 
 .check-result__badge.pending {
@@ -169,6 +175,8 @@
     font-size: 13px;
     color: #666;
     margin: 0 0 12px;
+    word-break: keep-all;
+    line-height: 1.6;
 }
 
 .check-result__info {
@@ -232,6 +240,8 @@
     border-radius: 4px;
     text-align: center;
     font-family: monospace;
+    word-break: break-all;
+    min-width: 0;
 }
 
 .check-invite__copy {
@@ -246,6 +256,7 @@
     cursor: pointer;
     transition: all 0.15s;
     white-space: nowrap;
+    flex-shrink: 0;
 }
 
 .check-invite__copy:hover {
@@ -257,4 +268,27 @@
     font-size: 12px;
     color: #aaa;
     margin: 0;
+    word-break: keep-all;
+    line-height: 1.6;
+}
+
+@media (max-width: 480px) {
+    .check-page {
+        padding: 40px 16px 80px;
+    }
+
+    .check-card {
+        padding: 32px 24px;
+        border-radius: 8px;
+    }
+
+    .check-title {
+        font-size: 24px;
+    }
+
+    .check-invite__code {
+        font-size: 15px;
+        letter-spacing: 0.08em;
+        padding: 10px 12px;
+    }
 }
