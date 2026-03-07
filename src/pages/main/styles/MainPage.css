@@ -4,32 +4,97 @@
 
 .pages {
     height: 100vh;
-
     display: flex;
-    flex-direction: column;
-
     justify-content: center;
     align-items: center;
+    padding: 0 10%;
+}
+
+.pages.home {
+    flex-direction: row;
+    gap: 80px;
+}
+
+.home-left {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .logo {
-    width: 90px;
-    margin-bottom: 40px;
+    width: 160px;
+    opacity: 0.9;
 }
 
-.pages h1 {
-    font-size: 64px;
+.home-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 12px;
+}
+
+.home-eyebrow {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    color: var(--link-text);
+    text-transform: uppercase;
+}
+
+.home-right h1 {
+    font-size: 56px;
     font-weight: 700;
-    margin-bottom: 20px;
+    color: #1a1a1a;
+    line-height: 1.1;
+    margin: 0;
 }
 
-.pages p {
-    font-size: 20px;
-    opacity: 0.7;
-    margin-bottom: 40px;
+.home-right p {
+    font-size: 18px;
+    color: #888;
+    margin: 0;
 }
 
 .buttons {
     display: flex;
-    gap: 20px;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.btn-ghost {
+    padding: 0.5rem 1.2rem;
+    border-radius: 999px;
+    border: 1.5px solid var(--button-bg);
+    color: var(--link-text);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.2s;
+}
+
+.btn-ghost:hover {
+    background: var(--button-bg);
+    color: #fff;
+}
+
+@media (max-width: 768px) {
+    .pages.home {
+        flex-direction: column;
+        gap: 40px;
+        text-align: center;
+        padding: 0 24px;
+    }
+
+    .logo {
+        width: 100px;
+    }
+
+    .home-right h1 {
+        font-size: 36px;
+    }
+
+    .buttons {
+        justify-content: center;
+    }
 }

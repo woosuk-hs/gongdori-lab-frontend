@@ -1,0 +1,1 @@
+export type MemberType = "STUDENT" | "TEACHER";

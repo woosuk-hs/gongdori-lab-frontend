@@ -12,38 +12,39 @@ function Footer() {
 
         <div className="footer-left">
           <img src={logo} alt="Logo" className="footer-logo" />
-          <p>
-            <strong>우석고 SW 개발 동아리</strong><br />
-            상상을 코드로 구현하는 개발팀입니다.
+          <p className="footer-brand">Gongdori</p>
+          <p className="footer-desc">
+            우석고 SW 개발 동아리<br />
+            상상을 코드로 구현하는 개발팀
           </p>
         </div>
 
         <div className="footer-center">
-          <div>
-            <h4>동아리</h4>
-            <Link to="/recruit">Join 2026</Link>
-            <Link to="/projects">Projects</Link>
-            <Link to="/members">Members</Link>
-          </div>
-
-          <div>
-            <h4>정보</h4>
-            <a href="https://school.jbedu.kr/woosuk" target="_blank">
-              <img src={schoolIcon} alt="School" className="footer-icon" /> 학교
-            </a>
-            <a href="https://github.com/woosuk-hs" target="_blank">
-              <img src={githubIcon} alt="GitHub" className="footer-icon" /> GitHub
-            </a>
-            <a href="mailto:contact@woosuk-hs.kr">
-              <img src={mailIcon} alt="Email" className="footer-icon" /> Email
-            </a>
-          </div>
+          <h4>동아리</h4>
+          <Link to="/recruit">Join 2026</Link>
+          <Link to="/members">Members</Link>
         </div>
 
-        <p className="copyright">
-          Copyright ⓒ Gongdori All Rights Reserved.
-        </p>
+        <div className="footer-right">
+          <h4>정보</h4>
+          <a href="https://school.jbedu.kr/woosuk" target="_blank" rel="noreferrer">
+            <img src={schoolIcon} alt="School" className="footer-icon" />
+            학교 홈페이지
+          </a>
+          <a href="https://github.com/woosuk-hs" target="_blank" rel="noreferrer">
+            <img src={githubIcon} alt="GitHub" className="footer-icon" />
+            GitHub
+          </a>
+          <a href="mailto:hello@gongdori.site">
+            <img src={mailIcon} alt="Email" className="footer-icon" />
+            hello@gongdori.site
+          </a>
+        </div>
 
+      </div>
+
+      <div className="footer-bottom">
+        <p>Copyright ⓒ 2026 Gongdori. All Rights Reserved.</p>
       </div>
     </footer>
   );

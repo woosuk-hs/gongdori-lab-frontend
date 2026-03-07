@@ -1,0 +1,184 @@
+.profile-page {
+    min-height: 80vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 80px 24px 120px;
+    background-color: var(--page-bg);
+}
+
+.profile-loading,
+.profile-error {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40vh;
+    font-size: 14px;
+    color: #aaa;
+}
+
+.profile-error { color: #c0392b; }
+
+.profile-card {
+    width: 100%;
+    max-width: 520px;
+    background: #fff;
+    border: 1px solid #E8E2D9;
+    border-radius: 8px;
+    padding: 40px 44px;
+    box-shadow: 0 2px 24px rgba(0, 0, 0, 0.05);
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 28px;
+}
+
+.profile-avatar {
+    flex-shrink: 0;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: var(--button-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border: 2px solid #E8E2D9;
+}
+
+.profile-avatar span {
+    font-size: 32px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1;
+}
+
+.profile-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-header-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+}
+
+.profile-name-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.profile-name {
+    font-size: 22px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.profile-role-badge {
+    display: inline-block;
+    padding: 2px 10px;
+    background: #EDE8E0;
+    border-radius: 100px;
+    font-size: 11px;
+    font-weight: 600;
+    color: #6B5E52;
+    letter-spacing: 0.03em;
+    white-space: nowrap;
+}
+
+.profile-role-badge.admin {
+    background: #2a2a2a;
+    color: #fff;
+}
+
+.profile-username {
+    font-size: 13px;
+    color: #bbb;
+    margin: 0;
+}
+
+.profile-github-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 13px;
+    color: var(--link-text);
+    text-decoration: none;
+    font-weight: 500;
+    margin-top: 2px;
+    transition: color 0.15s;
+    width: fit-content;
+}
+
+.profile-github-link:hover {
+    color: var(--link-hover);
+}
+
+.profile-github-link img {
+    flex-shrink: 0;
+    opacity: 0.7;
+}
+
+.profile-divider {
+    border: none;
+    border-top: 1px solid #F0EBE3;
+    margin-bottom: 24px;
+}
+
+.profile-details {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 0 0 32px;
+}
+
+.profile-detail-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.profile-detail-row dt {
+    font-size: 13px;
+    font-weight: 600;
+    color: #aaa;
+}
+
+.profile-detail-row dd {
+    font-size: 14px;
+    color: #2a2a2a;
+    margin: 0;
+    font-weight: 500;
+}
+
+.profile-edit-btn {
+    display: block;
+    width: 100%;
+    padding: 13px;
+    background-color: var(--button-bg);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    font-family: "Noto Sans KR", sans-serif;
+    letter-spacing: 0.04em;
+    border: none;
+    border-radius: 4px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.15s;
+    box-sizing: border-box;
+}
+
+.profile-edit-btn:hover {
+    background-color: var(--button-hover-bg);
+}

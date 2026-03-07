@@ -1,0 +1,189 @@
+.edit-page {
+    min-height: 80vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 80px 24px 120px;
+    background-color: var(--page-bg);
+}
+
+.edit-card {
+    width: 100%;
+    max-width: 480px;
+    background: #fff;
+    border: 1px solid #E8E2D9;
+    border-radius: 6px;
+    padding: 48px 44px;
+    box-shadow: 0 2px 24px rgba(0, 0, 0, 0.05);
+}
+
+.edit-card__header {
+    margin-bottom: 36px;
+}
+
+.edit-card__eyebrow {
+    display: block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    color: var(--link-text);
+    margin-bottom: 10px;
+}
+
+.edit-card__title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin: 0;
+}
+
+.edit-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.edit-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.edit-field label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #4B4740;
+    letter-spacing: 0.02em;
+}
+
+.edit-optional {
+    font-weight: 400;
+    color: #aaa;
+    font-size: 12px;
+}
+
+.edit-input-prefix {
+    display: flex;
+    align-items: center;
+    border: 1.5px solid #DDD8CF;
+    border-radius: 4px;
+    background: #FDFCFA;
+    overflow: hidden;
+    transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.edit-input-prefix:focus-within {
+    border-color: var(--link-hover);
+    box-shadow: 0 0 0 3px rgba(140, 118, 94, 0.12);
+    background: #fff;
+}
+
+.edit-input-prefix span {
+    padding: 11px 10px 11px 14px;
+    font-size: 14px;
+    color: #aaa;
+    white-space: nowrap;
+    user-select: none;
+}
+
+.edit-input-prefix input {
+    flex: 1;
+    padding: 11px 14px 11px 0;
+    border: none;
+    background: transparent;
+    font-size: 14px;
+    font-family: "Noto Sans KR", sans-serif;
+    color: #1a1a1a;
+    outline: none;
+}
+
+.edit-field input[type="password"] {
+    padding: 11px 14px;
+    border: 1.5px solid #DDD8CF;
+    border-radius: 4px;
+    font-size: 14px;
+    font-family: "Noto Sans KR", sans-serif;
+    background: #FDFCFA;
+    color: #1a1a1a;
+    transition: border-color 0.15s, box-shadow 0.15s;
+    outline: none;
+}
+
+.edit-field input[type="password"]:focus {
+    border-color: var(--link-hover);
+    box-shadow: 0 0 0 3px rgba(140, 118, 94, 0.12);
+    background: #fff;
+}
+
+.edit-hint {
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.edit-hint.error { color: #c0392b; }
+.edit-hint.success { color: #27ae60; }
+
+.edit-divider {
+    border: none;
+    border-top: 1px solid #F0EBE3;
+    margin: 4px 0;
+}
+
+.edit-error {
+    font-size: 13px;
+    color: #c0392b;
+    background: #fdf2f2;
+    border: 1px solid #f5c6c6;
+    border-radius: 4px;
+    padding: 10px 14px;
+    margin: 0;
+}
+
+.edit-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 4px;
+}
+
+.edit-cancel {
+    flex: 1;
+    padding: 13px;
+    background: transparent;
+    color: #888;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: "Noto Sans KR", sans-serif;
+    border: 1.5px solid #DDD8CF;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.15s;
+}
+
+.edit-cancel:hover {
+    border-color: #bbb;
+    color: #555;
+}
+
+.edit-submit {
+    flex: 2;
+    padding: 13px;
+    background-color: var(--button-bg);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    font-family: "Noto Sans KR", sans-serif;
+    letter-spacing: 0.04em;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.15s;
+}
+
+.edit-submit:hover:not(:disabled) {
+    background-color: var(--button-hover-bg);
+}
+
+.edit-submit:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}

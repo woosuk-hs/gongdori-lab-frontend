@@ -16,6 +16,8 @@ export default defineConfig(({ mode }) => {
         "@utils": path.resolve(__dirname, './src/utils'),
         "@pages": path.resolve(__dirname, './src/pages'),
         "@assets": path.resolve(__dirname, './src/assets'),
+        "@type": path.resolve(__dirname, './src/types'),
+        "@hooks": path.resolve(__dirname, './src/hooks'),
       },
     },
     server: {

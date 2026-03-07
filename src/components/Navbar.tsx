@@ -27,9 +27,9 @@ function Navbar() {
 
           <div className={`nav-menu ${open ? "open" : ""}`}>
             <ul className="nav-list">
-              <li><Link to="/" onClick={closeMenu}>ABOUT</Link></li>
-              <li><Link to="/" onClick={closeMenu}>부원</Link></li>
-              <li><Link to="/activity" onClick={closeMenu}>활동</Link></li>
+              <li><Link to="/" onClick={closeMenu}>준비중</Link></li> {/* About */}
+              <li><Link to="/" onClick={closeMenu}>준비중</Link></li> {/* 부원 */}
+              <li><Link to="/" onClick={closeMenu}>준비중</Link></li> {/* 활동 */}
 
               <li onClick={closeMenu}>
                 <AuthButton />

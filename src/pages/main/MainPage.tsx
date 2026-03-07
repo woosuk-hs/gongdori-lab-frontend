@@ -1,36 +1,37 @@
 import "./styles/MainPage.css"
-import { Link } from "react-router-dom";
+import logo from "@assets/logo.svg";
+import {RecruitButton} from "@components/RecruitButton.tsx";
 
 function MainPage() {
   return (
     <div className="main-page">
 
       <section className="pages home" id="home">
-
-        <img src="/images/logo.svg" className="logo" alt="logo" />
-
-        <h1>Gongdori Lab</h1>
-
-        <p>Developers who build the future</p>
-
-        <div className="buttons">
-          <Link to="/recruit" className="btn-primary">지원하기</Link>
-          {/*<a href="/#about" className="btn-ghost">더 알아보기</a>*/}
+        <div className="home-left">
+          <img src={logo} className="logo" alt="logo" />
         </div>
-
+        <div className="home-right">
+          <span className="home-eyebrow">우석고 SW 개발 동아리</span>
+          <h1>Gongdori</h1>
+          <p>미래를 만들어가는 개발자들의 공간</p>
+          <div className="buttons">
+            <RecruitButton />
+            <a href="https://github.com/woosuk-hs" target="_blank" rel="noreferrer" className="btn-ghost">GitHub</a>
+          </div>
+        </div>
       </section>
 
-      <section className="pages about" id="about">
-        <h2>About</h2>
-      </section>
+      {/*<section className="pages about" id="about">*/}
+      {/*  <h2>About</h2>*/}
+      {/*</section>*/}
 
-      <section className="pages project">
-        <h2>Projects</h2>
-      </section>
+      {/*<section className="pages project">*/}
+      {/*  <h2>Projects</h2>*/}
+      {/*</section>*/}
 
-      <section className="pages join">
-        <h2>Join Us</h2>
-      </section>
+      {/*<section className="pages join">*/}
+      {/*  <h2>Join Us</h2>*/}
+      {/*</section>*/}
 
     </div>
   );

@@ -1,97 +1,115 @@
 .footer {
     background-color: var(--footer-bg);
     color: var(--footer-text);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    padding: 2rem 3rem;
-    border-top: 1px solid #ddd;
+    font-family: "Noto Sans KR", sans-serif;
+    border-top: 1px solid #E8E2D9;
 }
 
 .footer-inner {
     display: flex;
-    flex-wrap: wrap;
     justify-content: space-between;
-    gap: 2rem;
+    gap: 48px;
     max-width: 1200px;
     margin: 0 auto;
+    padding: 48px 3rem 40px;
 }
 
 .footer-left {
     display: flex;
     flex-direction: column;
-}
-
-.footer-left p {
-    margin: 0;
-    line-height: 1.6;
-}
-
-.footer-left strong {
-    display: block;
-    margin-bottom: 0.5rem;
+    gap: 10px;
+    max-width: 220px;
 }
 
 .footer-logo {
-    width: 60px;
-    margin-bottom: 1rem;
+    width: 48px;
+    margin-bottom: 4px;
+    opacity: 0.85;
 }
 
-.footer-center {
+.footer-brand {
+    font-size: 15px;
+    font-weight: 700;
+    color: #2a2a2a;
+    margin: 0;
+}
+
+.footer-desc {
+    font-size: 13px;
+    color: #999;
+    line-height: 1.7;
+    margin: 0;
+}
+
+.footer-center,
+.footer-right {
     display: flex;
     flex-direction: column;
+    gap: 10px;
+    min-width: 140px;
 }
 
-.footer-center div {
-    margin-bottom: 1rem;
+.footer-center h4,
+.footer-right h4 {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: #aaa;
+    text-transform: uppercase;
+    margin-bottom: 4px;
 }
 
-.footer-center h4 {
-    font-size: 1rem;
-    margin-bottom: 0.5rem;
-    color: var(--footer-text);
-}
-
-.footer-center a {
+.footer-center a,
+.footer-right a {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 8px;
+    font-size: 13px;
     color: var(--link-text);
     text-decoration: none;
-    margin-bottom: 0.3rem;
-    transition: color 0.3s;
+    font-weight: 500;
+    transition: color 0.15s;
 }
 
-.footer-center a:hover {
+.footer-center a:hover,
+.footer-right a:hover {
     color: var(--link-hover);
 }
 
 .footer-icon {
-    width: 16px;
-    height: 16px;
+    width: 14px;
+    height: 14px;
+    opacity: 0.6;
+    flex-shrink: 0;
 }
 
-.footer-right {
-    display: flex;
-    gap: 2rem;
+.footer-bottom {
+    border-top: 1px solid #E8E2D9;
+    padding: 16px 3rem;
+    max-width: 100%;
 }
 
-footer p.copyright {
-    width: 100%;
+.footer-bottom p {
+    max-width: 1200px;
+    margin: 0 auto;
+    font-size: 12px;
+    color: #bbb;
     text-align: center;
-    margin-top: 1.5rem;
-    font-size: 0.85rem;
-    color: #666;
 }
 
 @media (max-width: 768px) {
     .footer-inner {
         flex-direction: column;
-        align-items: center;
-        text-align: center;
+        align-items: flex-start;
+        gap: 32px;
+        padding: 40px 24px 32px;
     }
 
-    .footer-right {
-        flex-direction: column;
-        gap: 1rem;
-        margin-top: 1rem;
+    .footer-left {
+        max-width: 100%;
+    }
+
+    .footer-bottom {
+        padding: 16px 24px;
     }
 }
