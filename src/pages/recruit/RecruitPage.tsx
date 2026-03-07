@@ -1,5 +1,5 @@
 import { useState, type SyntheticEvent } from "react";
-import { useNavigate } from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import { recruitAPI, type RecruitDTO } from "./api/recruitAPI";
 import "./styles/RecruitPage.css";
 import {CONFIG} from "@utils/config.ts";
@@ -50,7 +50,7 @@ function RecruitPage() {
   return (
     <div className="recruit-page">
       <div className="recruit-header">
-        <span className="recruit-label">RECRUITMENT { CONFIG.RECRUIT_YEAR }</span>
+        <span className="recruit-label">RECRUITMENT { CONFIG.YEAR }</span>
         <h1>Join Gongdori</h1>
         <p>함께 미래를 만들어갈 개발자를 기다립니다</p>
       </div>
@@ -129,6 +129,9 @@ function RecruitPage() {
         <button type="submit" className="recruit-submit" disabled={loading}>
           {loading ? "제출 중..." : "지원하기 →"}
         </button>
+        <Link to="/recruit/check" className="recruit-check-link">
+          합격 확인하기
+        </Link>
       </form>
     </div>
   );

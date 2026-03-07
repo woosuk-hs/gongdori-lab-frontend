@@ -12,7 +12,7 @@ export function RecruitButton({ onClick }: RecruitButtonProps) {
 
   return (
     <Link to="/recruit" className="btn-primary" onClick={onClick}>
-      {CONFIG.RECRUIT_YEAR} 지원하기
+      {CONFIG.YEAR} 지원하기
     </Link>
   );
 }

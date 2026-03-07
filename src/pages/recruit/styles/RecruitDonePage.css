@@ -1,0 +1,102 @@
+.done-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 70vh;
+    padding: 80px 24px;
+    background-color: var(--page-bg);
+}
+
+.done-card {
+    width: 100%;
+    max-width: 440px;
+    background: #fff;
+    border: 1px solid #E8E2D9;
+    border-radius: 8px;
+    padding: 52px 44px;
+    box-shadow: 0 2px 24px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.done-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: #D1F2D1;
+    color: #1a6b1a;
+    font-size: 24px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 8px;
+}
+
+.done-eyebrow {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    color: var(--link-text);
+}
+
+.done-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin: 0;
+}
+
+.done-desc {
+    font-size: 14px;
+    color: #888;
+    line-height: 1.7;
+    margin: 0;
+}
+
+.done-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    margin-top: 12px;
+}
+
+.done-btn-primary {
+    padding: 13px;
+    background: var(--button-bg);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    font-family: "Noto Sans KR", sans-serif;
+    border-radius: 4px;
+    text-decoration: none;
+    text-align: center;
+    transition: background-color 0.15s;
+}
+
+.done-btn-primary:hover {
+    background: var(--button-hover-bg);
+}
+
+.done-btn-ghost {
+    padding: 13px;
+    background: transparent;
+    color: #aaa;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: "Noto Sans KR", sans-serif;
+    border: 1.5px solid #DDD8CF;
+    border-radius: 4px;
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.15s;
+}
+
+.done-btn-ghost:hover {
+    border-color: #bbb;
+    color: #555;
+}

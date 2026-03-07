@@ -158,3 +158,19 @@
 .field-hint.error {
     color: #c0392b;
 }
+
+.recruit-check-link {
+    display: block;
+    text-align: center;
+    margin-top: 12px;
+    font-size: 13px;
+    color: var(--link-text);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.15s;
+}
+
+.recruit-check-link:hover {
+    color: var(--link-hover);
+    text-decoration: underline;
+}

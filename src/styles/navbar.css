@@ -87,6 +87,30 @@
     background: var(--footer-text);
 }
 
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-profile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #EDE8E0;
+    color: var(--link-text);
+    text-decoration: none;
+    transition: background 0.15s, color 0.15s;
+}
+
+.nav-profile:hover {
+    background: var(--button-bg);
+    color: #fff;
+}
+
 @media (max-width: 768px) {
 
     .hamburger {

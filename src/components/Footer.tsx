@@ -4,6 +4,7 @@ import logo from "@assets/logo.svg";
 import githubIcon from "@assets/github.svg";
 import schoolIcon from "@assets/school.svg";
 import mailIcon from "@assets/mail.svg";
+import {CONFIG} from "@utils/config.ts";
 
 function Footer() {
   return (
@@ -21,7 +22,7 @@ function Footer() {
 
         <div className="footer-center">
           <h4>동아리</h4>
-          <Link to="/recruit">Join 2026</Link>
+          <Link to="/recruit">Join { CONFIG.YEAR }</Link>
           <Link to="/members">Members</Link>
         </div>
 
@@ -44,7 +45,7 @@ function Footer() {
       </div>
 
       <div className="footer-bottom">
-        <p>Copyright ⓒ 2026 Gongdori. All Rights Reserved.</p>
+        <p>Copyright ⓒ { CONFIG.YEAR } Gongdori. All Rights Reserved.</p>
       </div>
     </footer>
   );

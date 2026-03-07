@@ -12,6 +12,8 @@ import ProfileEditPage from "@pages/profile/ProfileEditPage.tsx";
 import * as ChannelService from "@channel.io/channel-web-sdk-loader";
 import { CONFIG } from "@utils/config.ts";
 import RecruitCheckPage from "@pages/recruit/RecruitCheckPage.tsx";
+import RecruitDonePage from "@pages/recruit/RecruitDonePage.tsx";
+import RecruitDetailPage from "@pages/recruit/RecruitDetailPage.tsx";
 
 function App() {
 
@@ -25,6 +27,7 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/recruit" element={<RecruitPage />} />
         <Route path="/recruit/check" element={<RecruitCheckPage />} />
+        <Route path="/recruit/done" element={<RecruitDonePage />} />
         <Route path="/join" element={<JoinPage />} />
 
         <Route element={<PrivateRoute />}>
@@ -34,6 +37,7 @@ function App() {
 
         <Route element={<PrivateRoute requireAdmin />}>
           <Route path="/recruit/admin" element={<RecruitAdminPage />} />
+          <Route path="/recruit/:studentId" element={<RecruitDetailPage />} />
         </Route>
 
         <Route path="*" element={<NotFoundPage />} />

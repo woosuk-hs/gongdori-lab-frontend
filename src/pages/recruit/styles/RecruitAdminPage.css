@@ -93,6 +93,7 @@
     border-top: 1px solid #F0EBE3;
     color: #2a2a2a;
     vertical-align: middle;
+    white-space: nowrap;
 }
 
 .admin-table tbody tr {
@@ -133,6 +134,7 @@
     border-radius: 100px;
     font-size: 12px;
     font-weight: 600;
+    white-space: nowrap;
 }
 
 .status-badge.pending {
@@ -152,7 +154,9 @@
 
 .status-actions {
     display: flex;
+    flex-direction: row;
     gap: 6px;
+    align-items: center;
 }
 
 .action-btn {
@@ -165,6 +169,7 @@
     cursor: pointer;
     transition: all 0.15s;
     background: transparent;
+    white-space: nowrap;
 }
 
 .action-btn.accepted {
@@ -213,4 +218,61 @@
 .admin-table td a:hover {
     color: var(--link-hover);
     text-decoration: underline;
+}
+
+.motivation-btn {
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    font-family: "Noto Sans KR", sans-serif;
+    border: 1.5px solid #DDD8CF;
+    background: transparent;
+    color: #4B4740;
+    cursor: pointer;
+    transition: all 0.15s;
+    white-space: nowrap;
+}
+
+.motivation-btn:hover {
+    border-color: var(--link-hover);
+    color: var(--link-hover);
+}
+
+.motivation-btn.open {
+    background: var(--button-bg);
+    border-color: var(--button-bg);
+    color: #fff;
+}
+
+.motivation-row td {
+    background: #FDFAF6;
+    border-top: none;
+    padding: 0 16px 16px 16px;
+    white-space: normal;
+}
+
+.motivation-content {
+    border-left: 3px solid #DDD8CF;
+    padding: 12px 16px;
+    background: #fff;
+    border-radius: 0 6px 6px 0;
+}
+
+.motivation-label {
+    display: block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    color: #6B6460;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.motivation-content p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.75;
+    color: #2a2a2a;
+    white-space: pre-wrap;
 }

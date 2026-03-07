@@ -39,10 +39,21 @@ function ProfileEditPage() {
   const set = (key: string) => (e: React.ChangeEvent<HTMLInputElement>) =>
     setForm((p) => ({ ...p, [key]: e.target.value }));
 
+  const usernameValid = !form.username || /^[a-z0-9]+$/.test(form.username);
+  const passwordValid = !form.password || form.password.length >= 8;
+
   const handleSubmit = async (e: SyntheticEvent<HTMLFormElement>) => {
     e.preventDefault();
     setError("");
 
+    if (form.username && !usernameValid) {
+      setError("아이디는 영어 소문자와 숫자만 입력 가능합니다.");
+      return;
+    }
+    if (form.password && !passwordValid) {
+      setError("비밀번호는 8자 이상이어야 합니다.");
+      return;
+    }
     if (form.password && form.password !== form.passwordConfirm) {
       setError("비밀번호가 일치하지 않습니다.");
       return;
@@ -78,10 +89,16 @@ function ProfileEditPage() {
             <input
               id="username"
               type="text"
-              placeholder="변경할 아이디를 입력하세요"
+              placeholder="변경할 아이디를 입력하세요 (영어 소문자, 숫자)"
               value={form.username}
-              onChange={set("username")}
+              onChange={(e) => {
+                const val = e.target.value.replace(/[^a-z0-9]/g, "");
+                setForm((p) => ({ ...p, username: val }));
+              }}
             />
+            {form.username && !usernameValid && (
+              <span className="edit-hint error">영어 소문자와 숫자만 입력 가능합니다.</span>
+            )}
           </div>
 
           <div className="edit-field">
@@ -107,10 +124,13 @@ function ProfileEditPage() {
             <input
               id="password"
               type="password"
-              placeholder="새 비밀번호를 입력하세요"
+              placeholder="8자 이상 입력하세요"
               value={form.password}
               onChange={set("password")}
             />
+            {form.password && !passwordValid && (
+              <span className="edit-hint error">비밀번호는 8자 이상이어야 합니다.</span>
+            )}
           </div>
 
           <div className="edit-field">
@@ -125,7 +145,7 @@ function ProfileEditPage() {
             {form.passwordConfirm && form.password !== form.passwordConfirm && (
               <span className="edit-hint error">비밀번호가 일치하지 않습니다.</span>
             )}
-            {form.passwordConfirm && form.password === form.passwordConfirm && (
+            {form.passwordConfirm && form.password === form.passwordConfirm && form.passwordConfirm && (
               <span className="edit-hint success">비밀번호가 일치합니다.</span>
             )}
           </div>

@@ -2,10 +2,13 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { AuthButton } from "./AuthButton";
 import { RecruitButton } from "@components/RecruitButton";
+import { useAuth } from "@hooks/useAuth";
 import "@styles/navbar.css";
+import profileIcon from "@assets/profile.svg";
 
 function Navbar() {
   const [open, setOpen] = useState<boolean>(false);
+  const { isLoggedIn } = useAuth();
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "auto";
@@ -27,17 +30,22 @@ function Navbar() {
 
           <div className={`nav-menu ${open ? "open" : ""}`}>
             <ul className="nav-list">
-              <li><Link to="/" onClick={closeMenu}>준비중</Link></li> {/* About */}
-              <li><Link to="/" onClick={closeMenu}>준비중</Link></li> {/* 부원 */}
-              <li><Link to="/" onClick={closeMenu}>준비중</Link></li> {/* 활동 */}
-
+              <li><Link to="/" onClick={closeMenu}>준비중</Link></li>
+              <li><Link to="/" onClick={closeMenu}>준비중</Link></li>
+              <li><Link to="/" onClick={closeMenu}>준비중</Link></li>
               <li onClick={closeMenu}>
                 <AuthButton />
               </li>
             </ul>
 
-            <RecruitButton onClick={closeMenu}/>
-
+            <div className="nav-right">
+              <RecruitButton onClick={closeMenu} />
+              {isLoggedIn && (
+                <Link to="/profile" className="nav-profile" onClick={closeMenu}>
+                  <img src={profileIcon} alt="profile" width={20} height={20} />
+                </Link>
+              )}
+            </div>
           </div>
 
           <button

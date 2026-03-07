@@ -1,0 +1,219 @@
+.detail-page {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 60px 24px 100px;
+}
+
+.detail-loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40vh;
+    font-size: 14px;
+    color: #aaa;
+}
+
+.detail-back {
+    background: none;
+    border: none;
+    font-size: 13px;
+    font-family: "Noto Sans KR", sans-serif;
+    color: #6B6460;
+    cursor: pointer;
+    padding: 0;
+    margin-bottom: 28px;
+    display: block;
+}
+
+.detail-back:hover {
+    color: var(--link-hover);
+}
+
+.detail-card {
+    border: 1px solid #E8E2D9;
+    border-radius: 10px;
+    padding: 32px;
+    background: #fff;
+}
+
+.detail-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 28px;
+}
+
+.detail-name-wrap {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+}
+
+.detail-name {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin: 0;
+}
+
+.detail-student-id {
+    font-size: 13px;
+    color: #aaa;
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.status-badge.pending {
+    background: #FEF3CD;
+    color: #856404;
+}
+
+.status-badge.accepted {
+    background: #D1F2D1;
+    color: #1a6b1a;
+}
+
+.status-badge.rejected {
+    background: #F8D7DA;
+    color: #842029;
+}
+
+.detail-info {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid #F0EBE3;
+    margin-bottom: 24px;
+}
+
+.detail-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.detail-label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: #6B6460;
+    width: 56px;
+    flex-shrink: 0;
+}
+
+.detail-empty {
+    color: #bbb;
+    font-size: 14px;
+}
+
+.detail-info a {
+    color: var(--link-text);
+    font-size: 14px;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.detail-info a:hover {
+    color: var(--link-hover);
+    text-decoration: underline;
+}
+
+.lang-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+}
+
+.lang-tags span {
+    padding: 2px 8px;
+    background: #EDE8E0;
+    border-radius: 100px;
+    font-size: 11px;
+    font-weight: 500;
+    color: #5a5248;
+}
+
+.detail-section {
+    padding-bottom: 24px;
+    border-bottom: 1px solid #F0EBE3;
+    margin-bottom: 24px;
+}
+
+.detail-section-label {
+    display: block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    color: #6B6460;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.detail-motivation {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.85;
+    color: #2a2a2a;
+    white-space: pre-wrap;
+}
+
+.detail-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.status-actions {
+    display: flex;
+    flex-direction: row;
+    gap: 6px;
+}
+
+.action-btn {
+    padding: 7px 16px;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 600;
+    font-family: "Noto Sans KR", sans-serif;
+    border: 1.5px solid;
+    cursor: pointer;
+    transition: all 0.15s;
+    background: transparent;
+}
+
+.action-btn.accepted {
+    border-color: #2d8a2d;
+    color: #2d8a2d;
+}
+
+.action-btn.accepted:hover {
+    background: #2d8a2d;
+    color: #fff;
+}
+
+.action-btn.rejected {
+    border-color: #c0392b;
+    color: #c0392b;
+}
+
+.action-btn.rejected:hover {
+    background: #c0392b;
+    color: #fff;
+}
+
+.action-btn.pending {
+    border-color: #999;
+    color: #999;
+}
+
+.action-btn.pending:hover {
+    background: #999;
+    color: #fff;
+}

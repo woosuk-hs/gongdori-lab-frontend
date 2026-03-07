@@ -20,10 +20,31 @@ function JoinPage() {
   const set = (key: string) => (e: React.ChangeEvent<HTMLInputElement>) =>
     setForm((p) => ({ ...p, [key]: e.target.value }));
 
+  const usernameValid = /^[a-z0-9]+$/.test(form.username);
+  const nameValid = /^[가-힣]+$/.test(form.name);
+  const studentIdValid = /^\d{5}$/.test(form.studentId);
+  const passwordValid = form.password.length >= 8;
+
   const handleSubmit = async (e: SyntheticEvent<HTMLFormElement>) => {
     e.preventDefault();
     setError("");
 
+    if (!usernameValid) {
+      setError("아이디는 영어 소문자와 숫자만 입력 가능합니다.");
+      return;
+    }
+    if (!nameValid) {
+      setError("이름은 한국어만 입력 가능합니다.");
+      return;
+    }
+    if (!studentIdValid) {
+      setError("학번은 숫자 5자리여야 합니다.");
+      return;
+    }
+    if (!passwordValid) {
+      setError("비밀번호는 8자 이상이어야 합니다.");
+      return;
+    }
     if (form.password !== form.passwordConfirm) {
       setError("비밀번호가 일치하지 않습니다.");
       return;
@@ -74,11 +95,17 @@ function JoinPage() {
             <input
               id="username"
               type="text"
-              placeholder="사용할 아이디를 입력하세요"
+              placeholder="영어 소문자, 숫자만 입력하세요"
               value={form.username}
-              onChange={set("username")}
+              onChange={(e) => {
+                const val = e.target.value.replace(/[^a-z0-9]/g, "");
+                setForm((p) => ({ ...p, username: val }));
+              }}
               required
             />
+            {form.username && !usernameValid && (
+              <span className="join-field__hint error">영어 소문자와 숫자만 입력 가능합니다.</span>
+            )}
           </div>
 
           <div className="join-field">
@@ -86,11 +113,14 @@ function JoinPage() {
             <input
               id="name"
               type="text"
-              placeholder="실명을 입력하세요"
+              placeholder="실명을 입력하세요 (한국어)"
               value={form.name}
               onChange={set("name")}
               required
             />
+            {form.name && !nameValid && (
+              <span className="join-field__hint error">이름은 한국어만 입력 가능합니다.</span>
+            )}
           </div>
 
           <div className="join-field">
@@ -98,11 +128,19 @@ function JoinPage() {
             <input
               id="studentId"
               type="text"
-              placeholder="학번을 입력하세요"
+              placeholder="숫자 5자리"
               value={form.studentId}
-              onChange={set("studentId")}
+              onChange={(e) => {
+                const val = e.target.value.replace(/\D/g, "").slice(0, 5);
+                setForm((p) => ({ ...p, studentId: val }));
+              }}
+              maxLength={5}
+              inputMode="numeric"
               required
             />
+            {form.studentId && !studentIdValid && (
+              <span className="join-field__hint error">학번은 숫자 5자리여야 합니다.</span>
+            )}
           </div>
 
           <div className="join-field">
@@ -110,11 +148,14 @@ function JoinPage() {
             <input
               id="password"
               type="password"
-              placeholder="비밀번호를 입력하세요"
+              placeholder="8자 이상 입력하세요"
               value={form.password}
               onChange={set("password")}
               required
             />
+            {form.password && !passwordValid && (
+              <span className="join-field__hint error">비밀번호는 8자 이상이어야 합니다.</span>
+            )}
           </div>
 
           <div className="join-field">

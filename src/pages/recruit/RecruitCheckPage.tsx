@@ -1,6 +1,7 @@
 import { useState, type SyntheticEvent } from "react";
 import {recruitAPI, type RecruitResponseDTO, STATUS_DESC, STATUS_LABEL} from "./api/recruitAPI";
 import "./styles/RecruitCheckPage.css";
+import {CONFIG} from "@utils/config.ts";
 
 function RecruitCheckPage() {
   const [studentId, setStudentId] = useState("");
@@ -35,7 +36,7 @@ function RecruitCheckPage() {
     <div className="check-page">
       <div className="check-card">
         <div className="check-header">
-          <span className="check-eyebrow">RECRUITMENT 2026</span>
+          <span className="check-eyebrow">RECRUITMENT { CONFIG.YEAR }</span>
           <h1 className="check-title">합격 확인</h1>
           <p className="check-desc">학번을 입력해 지원 결과를 확인하세요.</p>
         </div>
