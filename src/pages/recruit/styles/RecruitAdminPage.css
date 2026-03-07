@@ -103,7 +103,7 @@
     background: #FDFAF6;
 }
 
-.admin-table tbody tr.row-approved {
+.admin-table tbody tr.row-accepted {
     background: #f6fbf6;
 }
 
@@ -140,7 +140,7 @@
     color: #856404;
 }
 
-.status-badge.approved {
+.status-badge.accepted {
     background: #D1F2D1;
     color: #1a6b1a;
 }
@@ -167,12 +167,12 @@
     background: transparent;
 }
 
-.action-btn.approved {
+.action-btn.accepted {
     border-color: #2d8a2d;
     color: #2d8a2d;
 }
 
-.action-btn.approved:hover {
+.action-btn.accepted:hover {
     background: #2d8a2d;
     color: #fff;
 }

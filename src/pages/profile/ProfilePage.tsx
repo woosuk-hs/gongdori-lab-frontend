@@ -90,12 +90,12 @@ function ProfilePage() {
               year: "numeric", month: "long", day: "numeric"
             })}</dd>
           </div>
-          <div className="profile-detail-row">
-            <dt>최근 수정</dt>
-            <dd>{new Date(profile.updatedAt).toLocaleDateString("ko-KR", {
-              year: "numeric", month: "long", day: "numeric"
-            })}</dd>
-          </div>
+          {/*<div className="profile-detail-row">*/}
+          {/*  <dt>최근 수정</dt>*/}
+          {/*  <dd>{new Date(profile.updatedAt).toLocaleDateString("ko-KR", {*/}
+          {/*    year: "numeric", month: "long", day: "numeric"*/}
+          {/*  })}</dd>*/}
+          {/*</div>*/}
         </dl>
 
         <button className="profile-edit-btn" onClick={() => navigate("/profile/edit")}>

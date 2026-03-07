@@ -1,0 +1,1 @@
+export type RecruitStatus = "PENDING" | "ACCEPTED" | "REJECTED";

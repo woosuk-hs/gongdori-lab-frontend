@@ -1,18 +1,7 @@
 import { useEffect, useState } from "react";
-import { recruitAPI, type RecruitResponseDTO, type RecruitStatus } from "./api/recruitAPI";
+import {recruitAPI, type RecruitResponseDTO, STATUS_LABEL, STATUS_NEXT} from "./api/recruitAPI";
 import "./styles/RecruitAdminPage.css";
-
-const STATUS_LABEL: Record<RecruitStatus, string> = {
-  PENDING: "검토중",
-  APPROVED: "합격",
-  REJECTED: "불합격",
-};
-
-const STATUS_NEXT: Record<RecruitStatus, RecruitStatus[]> = {
-  PENDING: ["APPROVED", "REJECTED"],
-  APPROVED: ["PENDING", "REJECTED"],
-  REJECTED: ["PENDING", "APPROVED"],
-};
+import type {RecruitStatus} from "@type/recruit.ts";
 
 function RecruitAdminPage() {
   const [list, setList] = useState<RecruitResponseDTO[]>([]);
@@ -40,7 +29,7 @@ function RecruitAdminPage() {
       </div>
 
       <div className="admin-filters">
-        {(["ALL", "PENDING", "APPROVED", "REJECTED"] as const).map((s) => (
+        {(["ALL", "PENDING", "ACCEPTED", "REJECTED"] as const).map((s) => (
           <button
             key={s}
             className={`filter-btn ${filter === s ? "active" : ""}`}

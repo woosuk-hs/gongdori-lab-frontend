@@ -4,7 +4,13 @@ import { api } from "@utils/api.ts";
 import "./styles/ProfileEditPage.css";
 import * as React from "react";
 
+interface MemberResponseDTO {
+  username: string;
+  github?: string;
+}
+
 interface MemberUpdateDTO {
+  username?: string;
   password?: string;
   github?: string;
 }
@@ -12,6 +18,7 @@ interface MemberUpdateDTO {
 function ProfileEditPage() {
   const navigate = useNavigate();
   const [form, setForm] = useState({
+    username: "",
     github: "",
     password: "",
     passwordConfirm: "",
@@ -20,8 +27,13 @@ function ProfileEditPage() {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    api.get<{ github?: string }>("/members/me")
-      .then((res) => setForm((p) => ({ ...p, github: res.data.github ?? "" })));
+    api.get<MemberResponseDTO>("/members/me").then((res) =>
+      setForm((p) => ({
+        ...p,
+        username: res.data.username ?? "",
+        github: res.data.github ?? "",
+      }))
+    );
   }, []);
 
   const set = (key: string) => (e: React.ChangeEvent<HTMLInputElement>) =>
@@ -37,6 +49,7 @@ function ProfileEditPage() {
     }
 
     const dto: MemberUpdateDTO = {};
+    if (form.username) dto.username = form.username;
     if (form.github !== undefined) dto.github = form.github || undefined;
     if (form.password) dto.password = form.password;
 
@@ -60,6 +73,17 @@ function ProfileEditPage() {
         </div>
 
         <form className="edit-form" onSubmit={handleSubmit}>
+          <div className="edit-field">
+            <label htmlFor="username">아이디</label>
+            <input
+              id="username"
+              type="text"
+              placeholder="변경할 아이디를 입력하세요"
+              value={form.username}
+              onChange={set("username")}
+            />
+          </div>
+
           <div className="edit-field">
             <label htmlFor="github">GitHub 사용자명</label>
             <div className="edit-input-prefix">
@@ -109,11 +133,7 @@ function ProfileEditPage() {
           {error && <p className="edit-error">{error}</p>}
 
           <div className="edit-actions">
-            <button
-              type="button"
-              className="edit-cancel"
-              onClick={() => navigate("/profile")}
-            >
+            <button type="button" className="edit-cancel" onClick={() => navigate("/profile")}>
               취소
             </button>
             <button type="submit" className="edit-submit" disabled={loading}>

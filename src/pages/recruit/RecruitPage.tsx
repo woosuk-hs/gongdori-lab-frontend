@@ -31,10 +31,10 @@ function RecruitPage() {
     e.preventDefault();
     setError("");
 
-    if (form.languages.length === 0) {
-      setError("사용 가능한 언어를 최소 1개 선택하세요.");
-      return;
-    }
+    // if (form.languages.length === 0) {
+    //   setError("사용 가능한 언어를 최소 1개 선택하세요.");
+    //   return;
+    // }
 
     setLoading(true);
     try {
@@ -62,9 +62,18 @@ function RecruitPage() {
             type="text"
             placeholder="10101"
             value={form.studentId}
-            onChange={(e) => setForm((p) => ({ ...p, studentId: e.target.value }))}
+            onChange={(e) => {
+              const val = e.target.value.replace(/\D/g, "").slice(0, 5);
+              setForm((p) => ({ ...p, studentId: val }));
+            }}
+            maxLength={5}
+            pattern="\d{5}"
+            inputMode="numeric"
             required
           />
+          {form.studentId.length > 0 && form.studentId.length < 5 && (
+            <span className="field-hint error">학번은 5자리 숫자여야 합니다.</span>
+          )}
         </div>
 
         <div className="field-group">

@@ -53,6 +53,10 @@ api.interceptors.response.use(
       if (err.response?.status === 401 && !originalRequest._retry) {
           originalRequest._retry = true;
 
+          if (!Auth.getRefreshToken()) {
+            return Promise.reject(err);
+          }
+
           try {
               const newToken = await requestTokenRefresh();
               originalRequest.headers ??= {} as typeof originalRequest.headers;
