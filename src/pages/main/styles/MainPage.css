@@ -4,7 +4,6 @@
 
 .pages {
     height: 100vh;
-    scroll-snap-align: start;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -174,7 +173,6 @@
 
 @media (max-width: 768px) {
     .pages {
-        scroll-snap-align: none;
         padding: 80px 24px;
     }
 
