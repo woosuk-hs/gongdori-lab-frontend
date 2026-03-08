@@ -4,6 +4,7 @@
 
 .pages {
     height: 100vh;
+    scroll-snap-align: start;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -78,12 +79,110 @@
     color: #fff;
 }
 
+.section-eyebrow {
+    display: block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    color: var(--link-text);
+    margin-bottom: 12px;
+}
+
+.section-title {
+    font-size: 36px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin: 0 0 40px;
+    line-height: 1.2;
+}
+
+.pages.about {
+    background: #fff;
+    border-top: 1px solid #F0EBE3;
+    border-bottom: 1px solid #F0EBE3;
+}
+
+.about-inner {
+    max-width: 900px;
+    width: 100%;
+}
+
+.about-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.about-card {
+    padding: 32px 28px;
+    background: var(--page-bg);
+    border: 1px solid #E8E2D9;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    transition: box-shadow 0.15s, border-color 0.15s;
+}
+
+.about-card:hover {
+    border-color: var(--button-bg);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+}
+
+.about-card__icon {
+    width: 28px;
+    height: 28px;
+    opacity: 0.7;
+}
+
+.about-card h3 {
+    font-size: 17px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin: 0;
+}
+
+.about-card p {
+    font-size: 14px;
+    color: #888;
+    line-height: 1.7;
+    margin: 0;
+}
+
+.pages.join {
+    background: var(--page-bg);
+}
+
+.join-inner {
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+}
+
+.join-desc {
+    font-size: 16px;
+    color: #888;
+    line-height: 1.8;
+    margin: 0 0 36px;
+}
+
+.join-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+}
+
 @media (max-width: 768px) {
+    .pages {
+        scroll-snap-align: none;
+        padding: 80px 24px;
+    }
+
     .pages.home {
         flex-direction: column;
         gap: 40px;
         text-align: center;
-        padding: 0 24px;
+        padding: 80px 24px;
     }
 
     .logo {
@@ -96,5 +195,20 @@
 
     .buttons {
         justify-content: center;
+    }
+
+    .section-title {
+        font-size: 28px;
+        margin-bottom: 28px;
+    }
+
+    .about-cards {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .join-actions {
+        flex-direction: column;
+        align-items: center;
     }
 }

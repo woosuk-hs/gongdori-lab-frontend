@@ -29,6 +29,10 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-snap-type: y proximity;
+}
+
 html, body, #root {
     height: 100%;
     font-family: "Noto Sans KR", sans-serif;

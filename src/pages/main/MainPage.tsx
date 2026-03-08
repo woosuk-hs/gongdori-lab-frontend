@@ -1,6 +1,11 @@
 import "./styles/MainPage.css"
 import logo from "@assets/logo.svg";
-import {RecruitButton} from "@components/RecruitButton.tsx";
+import codeIcon from "@assets/code.svg";
+import usersIcon from "@assets/users.svg";
+import trendingUpIcon from "@assets/trending-up.svg";
+import { RecruitButton } from "@components/RecruitButton.tsx";
+import { Link } from "react-router-dom";
+import { CONFIG } from "@utils/config.ts";
 
 function MainPage() {
   return (
@@ -21,17 +26,41 @@ function MainPage() {
         </div>
       </section>
 
-      {/*<section className="pages about" id="about">*/}
-      {/*  <h2>About</h2>*/}
-      {/*</section>*/}
+      <section className="pages about" id="about">
+        <div className="about-inner">
+          <span className="section-eyebrow">ABOUT US</span>
+          <h2 className="section-title">우리는 이런 팀이에요</h2>
+          <div className="about-cards">
+            <div className="about-card">
+              <img src={codeIcon} alt="개발" className="about-card__icon" />
+              <h3>개발</h3>
+              <p>웹, 앱, 서버 등 다양한 분야의 개발을 직접 경험해요.</p>
+            </div>
+            <div className="about-card">
+              <img src={usersIcon} alt="협업" className="about-card__icon" />
+              <h3>협업</h3>
+              <p>팀 프로젝트를 통해 함께 문제를 해결하는 법을 배워요.</p>
+            </div>
+            <div className="about-card">
+              <img src={trendingUpIcon} alt="성장" className="about-card__icon" />
+              <h3>성장</h3>
+              <p>코드 리뷰와 스터디를 통해 빠르게 성장할 수 있어요.</p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-      {/*<section className="pages project">*/}
-      {/*  <h2>Projects</h2>*/}
-      {/*</section>*/}
-
-      {/*<section className="pages join">*/}
-      {/*  <h2>Join Us</h2>*/}
-      {/*</section>*/}
+      <section className="pages join" id="join">
+        <div className="join-inner">
+          <span className="section-eyebrow">RECRUITMENT {CONFIG.YEAR}</span>
+          <h2 className="section-title">함께하고 싶나요?</h2>
+          <p className="join-desc">Gongdori는 열정 있는 개발자를 기다리고 있어요.<br />언어나 경험에 상관없이 배우고자 하는 마음이면 충분해요.</p>
+          <div className="join-actions">
+            <RecruitButton />
+            <Link to="/recruit/check" className="btn-ghost">합격 확인</Link>
+          </div>
+        </div>
+      </section>
 
     </div>
   );

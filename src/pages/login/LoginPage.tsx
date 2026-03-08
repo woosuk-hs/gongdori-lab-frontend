@@ -6,7 +6,8 @@ import "./styles/LoginPage.css";
 function LoginPage() {
   const navigate = useNavigate();
   const location = useLocation();
-  const joined = (location.state as { joined?: boolean })?.joined;
+  const joined = (location.state as { joined?: boolean; from?: string })?.joined;
+  const from = (location.state as { from?: string })?.from ?? "/";
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -21,7 +22,7 @@ function LoginPage() {
     setLoading(true);
     try {
       await LoginAPI.login({ username, password, rememberMe });
-      navigate("/", { replace: true });
+      navigate(from, { replace: true });
     } catch {
       setError("아이디 또는 비밀번호가 틀렸습니다.");
     } finally {
