@@ -1,0 +1,169 @@
+.members-page {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 60px 24px 100px;
+}
+
+.members-loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40vh;
+    font-size: 14px;
+    color: #aaa;
+}
+
+.members-header {
+    margin-bottom: 56px;
+}
+
+.members-eyebrow {
+    display: block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    color: var(--link-text);
+    margin-bottom: 10px;
+}
+
+.members-title {
+    font-size: 36px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin: 0 0 10px;
+}
+
+.members-desc {
+    font-size: 14px;
+    color: #aaa;
+    margin: 0;
+}
+
+.members-section {
+    margin-bottom: 48px;
+}
+
+.members-section-title {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: #6B6460;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border-light, #F0EBE3);
+}
+
+.members-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 16px;
+}
+
+.member-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 18px 20px;
+    background: #fff;
+    border: 1px solid var(--border-color, #E8E2D9);
+    border-radius: 8px;
+    transition: box-shadow 0.15s, border-color 0.15s;
+}
+
+.member-card:hover {
+    border-color: var(--button-bg);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+.member-avatar {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--button-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.member-avatar span {
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1;
+}
+
+.member-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+}
+
+.member-name-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.member-name {
+    font-size: 15px;
+    font-weight: 700;
+    color: #1a1a1a;
+}
+
+.member-type-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 100px;
+    font-size: 11px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.member-type-badge.student {
+    background: var(--badge-student-bg, #E8EDE0);
+    color: var(--badge-student-color, #4a6040);
+}
+
+.member-type-badge.teacher {
+    background: var(--badge-teacher-bg, #FEF3CD);
+    color: var(--badge-teacher-color, #856404);
+}
+
+.member-student-id {
+    font-size: 12px;
+    color: #aaa;
+    font-weight: 500;
+}
+
+.member-github {
+    font-size: 12px;
+    color: var(--link-text);
+    text-decoration: none;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.member-github:hover {
+    color: var(--link-hover);
+    text-decoration: underline;
+}
+
+@media (max-width: 480px) {
+    .members-page {
+        padding: 40px 16px 80px;
+    }
+
+    .members-title {
+        font-size: 28px;
+    }
+
+    .members-grid {
+        grid-template-columns: 1fr;
+    }
+}

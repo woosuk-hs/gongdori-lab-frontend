@@ -87,18 +87,18 @@
 .profile-role-badge {
     display: inline-block;
     padding: 2px 10px;
-    background: #EDE8E0;
+    background: var(--badge-member-bg);
     border-radius: 100px;
     font-size: 11px;
     font-weight: 600;
-    color: #6B5E52;
+    color: var(--badge-member-color);
     letter-spacing: 0.03em;
     white-space: nowrap;
 }
 
 .profile-role-badge.admin {
-    background: #2a2a2a;
-    color: #fff;
+    background: var(--badge-admin-bg);
+    color: var(--badge-admin-color);
 }
 
 .profile-username {

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { api } from "@utils/api.ts";
-import { MemberTypeLabel } from "@utils/label/memberType.ts";
+import {TYPE_LABEL} from "@utils/label/memberType.ts";
 import type { MemberType } from "@type/member.ts";
 import githubIcon from "@assets/github.svg";
 import "./styles/ProfilePage.css";
@@ -76,7 +76,7 @@ function ProfilePage() {
         <dl className="profile-details">
           <div className="profile-detail-row">
             <dt>구분</dt>
-            <dd>{MemberTypeLabel[profile.type]}</dd>
+            <dd>{TYPE_LABEL[profile.type]}</dd>
           </div>
           {profile.studentNumber && (
             <div className="profile-detail-row">

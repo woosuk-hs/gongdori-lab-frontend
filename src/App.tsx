@@ -14,6 +14,8 @@ import { CONFIG } from "@utils/config.ts";
 import RecruitCheckPage from "@pages/recruit/RecruitCheckPage.tsx";
 import RecruitDonePage from "@pages/recruit/RecruitDonePage.tsx";
 import RecruitDetailPage from "@pages/recruit/RecruitDetailPage.tsx";
+import MemberAdminPage from "@pages/members/MemberAdminPage.tsx";
+import MembersPage from "@pages/members/MembersPage.tsx";
 
 function App() {
 
@@ -33,11 +35,13 @@ function App() {
         <Route element={<PrivateRoute />}>
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="/profile/edit" element={<ProfileEditPage />} />
+          <Route path="/members" element={<MembersPage />} />
         </Route>
 
         <Route element={<PrivateRoute requireAdmin />}>
           <Route path="/recruit/admin" element={<RecruitAdminPage />} />
           <Route path="/recruit/:studentId" element={<RecruitDetailPage />} />
+          <Route path="/members/admin" element={<MemberAdminPage />} />
         </Route>
 
         <Route path="*" element={<NotFoundPage />} />

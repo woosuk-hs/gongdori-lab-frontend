@@ -49,4 +49,19 @@ html, body, #root {
     --button-text: #FFFFFF;
     --button-hover-bg: #C0B49A;
     --button-hover-text: #FFFFFF;
+
+    --badge-admin-bg: #2a2a2a;
+    --badge-admin-color: #fff;
+    --badge-member-bg: #EDE8E0;
+    --badge-member-color: #5a5248;
+    --badge-student-bg: #E8EDE0;
+    --badge-student-color: #4a6040;
+    --badge-teacher-bg: #FEF3CD;
+    --badge-teacher-color: #856404;
+
+    --row-admin-bg: #F5F1E8;
+    --border-color: #E8E2D9;
+    --border-light: #F0EBE3;
+    --table-head-bg: #F5F1E8;
+    --table-hover-bg: #FDFAF6;
 }

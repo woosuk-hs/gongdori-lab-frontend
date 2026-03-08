@@ -8,18 +8,26 @@ function RecruitAdminPage() {
   const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState<RecruitStatus | "ALL">("ALL");
   const [expandedId, setExpandedId] = useState<number | null>(null);
+  const [deletingStudentId, setDeletingStudentId] = useState<string | null>(null);
 
   useEffect(() => {
     recruitAPI.findAll().then(setList).finally(() => setLoading(false));
   }, []);
 
-  // const handleStatusChange = async (id: number, status: RecruitStatus) => {
-  //   const updated = await recruitAPI.updateStatus(String(id), status);
-  //   setList((prev) => prev.map((r) => (r.id === id ? updated : r)));
-  // };
   const handleStatusChange = async (studentId: string, status: RecruitStatus) => {
     const updated = await recruitAPI.updateStatus(studentId, status);
     setList((prev) => prev.map((r) => (r.studentId === studentId ? updated : r)));
+  };
+
+  const handleDelete = async (studentId: string) => {
+    try {
+      await recruitAPI.delete(studentId);
+      setList((prev) => prev.filter((r) => r.studentId !== studentId));
+      setDeletingStudentId(null);
+    } catch (e) {
+      console.error("삭제 실패:", e);
+      setDeletingStudentId(null);
+    }
   };
 
   const toggleMotivation = (id: number) => {
@@ -60,21 +68,22 @@ function RecruitAdminPage() {
             <th>지원동기</th>
             <th>상태</th>
             <th>변경</th>
+            <th>삭제</th>
           </tr>
           </thead>
           <tbody>
           {filtered.map((r) => (
             <Fragment key={r.id}>
               <tr className={`row-${r.status.toLowerCase()}`}>
-                <td>{r.studentId}</td>
-                <td>{r.name}</td>
-                <td>
+                <td data-label="학번">{r.studentId}</td>
+                <td data-label="이름">{r.name}</td>
+                <td data-label="언어">
                   <div className="lang-tags">
                     {r.languages.map((l) => <span key={l}>{l}</span>)}
                   </div>
                 </td>
-                <td>{r.github ? <a href={r.github} target="_blank" rel="noreferrer">링크</a> : "—"}</td>
-                <td>
+                <td data-label="GitHub">{r.github ? <a href={r.github} target="_blank" rel="noreferrer">링크</a> : "—"}</td>
+                <td data-label="지원동기">
                   <button
                     className={`motivation-btn ${expandedId === r.id ? "open" : ""}`}
                     onClick={() => toggleMotivation(r.id)}
@@ -82,12 +91,12 @@ function RecruitAdminPage() {
                     {expandedId === r.id ? "접기 ▲" : "보기 ▼"}
                   </button>
                 </td>
-                <td>
+                <td data-label="상태">
                     <span className={`status-badge ${r.status.toLowerCase()}`}>
                       {STATUS_LABEL[r.status]}
                     </span>
                 </td>
-                <td>
+                <td data-label="변경">
                   <div className="status-actions">
                     {STATUS_NEXT[r.status].map((s) => (
                       <button
@@ -100,10 +109,18 @@ function RecruitAdminPage() {
                     ))}
                   </div>
                 </td>
+                <td data-label="삭제">
+                  <button
+                    className="action-btn delete"
+                    onClick={() => setDeletingStudentId(r.studentId)}
+                  >
+                    삭제
+                  </button>
+                </td>
               </tr>
               {expandedId === r.id && (
                 <tr className="motivation-row">
-                  <td colSpan={7}>
+                  <td colSpan={8}>
                     <div className="motivation-content">
                       <span className="motivation-label">지원동기</span>
                       <p>{r.motivation}</p>
@@ -114,11 +131,23 @@ function RecruitAdminPage() {
             </Fragment>
           ))}
           {filtered.length === 0 && (
-            <tr><td colSpan={7} className="empty">지원자가 없습니다.</td></tr>
+            <tr><td colSpan={8} className="empty">지원자가 없습니다.</td></tr>
           )}
           </tbody>
         </table>
       </div>
+
+      {deletingStudentId !== null && (
+        <div className="modal-overlay" onClick={() => setDeletingStudentId(null)}>
+          <div className="modal" onClick={(e) => e.stopPropagation()}>
+            <p className="modal-text">정말 이 지원자를 삭제할까요?<br />이 작업은 되돌릴 수 없어요.</p>
+            <div className="modal-actions">
+              <button className="action-btn cancel" onClick={() => setDeletingStudentId(null)}>취소</button>
+              <button className="action-btn delete" onClick={() => handleDelete(deletingStudentId)}>삭제</button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

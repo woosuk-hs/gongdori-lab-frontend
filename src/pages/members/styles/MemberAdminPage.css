@@ -1,0 +1,371 @@
+.admin-page {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 60px 24px 100px;
+}
+
+.admin-loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40vh;
+    font-size: 14px;
+    color: #aaa;
+}
+
+.admin-header {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 32px;
+}
+
+.admin-header h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #1a1a1a;
+}
+
+.admin-count {
+    font-size: 13px;
+    color: #aaa;
+    font-weight: 500;
+}
+
+.admin-filters {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+}
+
+.filter-divider {
+    width: 1px;
+    height: 20px;
+    background: var(--border-color);
+    margin: 0 4px;
+}
+
+.filter-btn {
+    padding: 7px 18px;
+    border: 1.5px solid var(--border-color);
+    border-radius: 100px;
+    font-size: 13px;
+    font-family: "Noto Sans KR", sans-serif;
+    font-weight: 500;
+    background: #FDFCFA;
+    color: #4B4740;
+    cursor: pointer;
+    transition: all 0.15s;
+}
+
+.filter-btn:hover {
+    border-color: var(--link-hover);
+    color: var(--link-hover);
+}
+
+.filter-btn.active {
+    background: var(--button-bg);
+    border-color: var(--button-bg);
+    color: #fff;
+}
+
+.admin-table-wrap {
+    overflow-x: auto;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+.admin-table thead {
+    background: var(--table-head-bg);
+}
+
+.admin-table th {
+    padding: 12px 16px;
+    text-align: left;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: #6B6460;
+    white-space: nowrap;
+}
+
+.admin-table td {
+    padding: 14px 16px;
+    border-top: 1px solid var(--border-light);
+    color: #2a2a2a;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+.admin-table tbody tr {
+    transition: background 0.1s;
+}
+
+.admin-table tbody tr:hover {
+    background: var(--table-hover-bg);
+}
+
+.admin-table tbody tr.row-admin {
+    background: var(--row-admin-bg);
+}
+
+.cell-username {
+    color: #888;
+    font-size: 13px;
+}
+
+.cell-date {
+    color: #aaa;
+    font-size: 12px;
+}
+
+.role-badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.role-badge.admin {
+    background: var(--badge-admin-bg);
+    color: var(--badge-admin-color);
+}
+
+.role-badge.member {
+    background: var(--badge-member-bg);
+    color: var(--badge-member-color);
+}
+
+.type-badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.type-badge.student {
+    background: var(--badge-student-bg);
+    color: var(--badge-student-color);
+}
+
+.type-badge.teacher {
+    background: var(--badge-teacher-bg);
+    color: var(--badge-teacher-color);
+}
+
+.admin-table td a {
+    color: var(--link-text);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.admin-table td a:hover {
+    color: var(--link-hover);
+    text-decoration: underline;
+}
+
+.member-actions {
+    display: flex;
+    gap: 6px;
+}
+
+.action-btn {
+    padding: 5px 12px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    font-family: "Noto Sans KR", sans-serif;
+    border: 1.5px solid;
+    cursor: pointer;
+    transition: all 0.15s;
+    background: transparent;
+    white-space: nowrap;
+}
+
+.action-btn.edit {
+    border-color: var(--link-hover);
+    color: var(--link-hover);
+}
+
+.action-btn.edit:hover {
+    background: var(--link-hover);
+    color: #fff;
+}
+
+.action-btn.delete {
+    border-color: #c0392b;
+    color: #c0392b;
+}
+
+.action-btn.delete:hover {
+    background: #c0392b;
+    color: #fff;
+}
+
+.action-btn.save {
+    border-color: var(--link-text);
+    color: var(--link-text);
+}
+
+.action-btn.save:hover {
+    background: var(--link-text);
+    color: #fff;
+}
+
+.action-btn.cancel {
+    border-color: var(--border-color);
+    color: #999;
+}
+
+.action-btn.cancel:hover {
+    background: var(--border-color);
+    color: #4B4740;
+}
+
+.edit-row td {
+    background: var(--page-bg);
+    border-top: none;
+    padding: 0 16px 16px;
+    white-space: normal;
+}
+
+.edit-content {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding: 16px;
+    background: #fff;
+    border-radius: 6px;
+    border-left: 3px solid var(--button-bg);
+    flex-wrap: wrap;
+}
+
+.edit-field {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.edit-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    color: #6B6460;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.edit-options {
+    display: flex;
+    gap: 6px;
+}
+
+.option-btn {
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    font-family: "Noto Sans KR", sans-serif;
+    border: 1.5px solid var(--border-color);
+    background: transparent;
+    color: #4B4740;
+    cursor: pointer;
+    transition: all 0.15s;
+}
+
+.option-btn:hover {
+    border-color: var(--link-hover);
+    color: var(--link-hover);
+}
+
+.option-btn.active {
+    background: var(--button-bg);
+    border-color: var(--button-bg);
+    color: #fff;
+}
+
+.edit-actions {
+    display: flex;
+    gap: 6px;
+    margin-left: auto;
+}
+
+.empty {
+    text-align: center;
+    padding: 48px !important;
+    color: #bbb;
+    font-size: 14px;
+}
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+}
+
+.modal {
+    background: #fff;
+    border-radius: 10px;
+    padding: 32px;
+    width: 360px;
+    max-width: calc(100vw - 48px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+}
+
+.modal-text {
+    font-size: 14px;
+    line-height: 1.75;
+    color: #2a2a2a;
+    margin: 0 0 24px;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+}
+
+@media (max-width: 768px) {
+    .admin-page {
+        padding: 32px 16px 80px;
+    }
+
+    .admin-header h1 {
+        font-size: 22px;
+    }
+
+    .admin-table th,
+    .admin-table td {
+        padding: 10px 12px;
+        font-size: 12px;
+    }
+
+    .admin-table th {
+        font-size: 11px;
+    }
+
+    .action-btn {
+        padding: 4px 8px;
+        font-size: 11px;
+    }
+
+    .edit-content {
+        gap: 16px;
+    }
+}

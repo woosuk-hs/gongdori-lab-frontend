@@ -63,4 +63,8 @@ export const recruitAPI = {
     const res = await api.patch<RecruitResponseDTO>(`/recruit/${studentId}/status`, { status });
     return res.data;
   },
+
+  delete: async (studentId: string): Promise<void> => {
+    await api.delete(`/recruit/${studentId}`);
+  },
 };

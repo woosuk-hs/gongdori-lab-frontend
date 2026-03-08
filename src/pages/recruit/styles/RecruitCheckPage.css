@@ -1,6 +1,6 @@
 .check-page {
     display: flex;
-    align-items: anchor-center;
+    align-items: center;
     justify-content: center;
     padding: 80px 24px 120px;
     background-color: var(--page-bg);
@@ -185,11 +185,6 @@
     gap: 8px;
 }
 
-.check-result__info > span {
-    font-size: 12px;
-    color: #aaa;
-}
-
 .check-result__langs {
     display: flex;
     flex-wrap: wrap;
@@ -270,6 +265,24 @@
     margin: 0;
     word-break: keep-all;
     line-height: 1.6;
+}
+
+.check-result__name-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.check-result__dot {
+    font-size: 14px;
+    color: #ccc;
+    line-height: 1;
+}
+
+.check-result__sid {
+    font-size: 14px;
+    font-weight: 500;
+    color: #aaa;
 }
 
 @media (max-width: 480px) {

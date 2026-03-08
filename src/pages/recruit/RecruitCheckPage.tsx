@@ -65,14 +65,17 @@ function RecruitCheckPage() {
         {result && (
           <div className={`check-result ${result.status.toLowerCase()}`}>
             <div className="check-result__top">
-              <span className="check-result__name">{result.name}</span>
+              <div className="check-result__name-row">
+                <span className="check-result__name">{result.name}</span>
+                <span className="check-result__dot">·</span>
+                <span className="check-result__sid">{result.studentId}</span>
+              </div>
               <span className={`check-result__badge ${result.status.toLowerCase()}`}>
                 {STATUS_LABEL[result.status]}
               </span>
             </div>
             <p className="check-result__desc">{STATUS_DESC[result.status]}</p>
             <div className="check-result__info">
-              <span>학번 {result.studentId}</span>
               {result.languages.length > 0 && (
                 <div className="check-result__langs">
                   {result.languages.map((l) => <span key={l}>{l}</span>)}
