@@ -22,8 +22,7 @@ function MemberAdminPage() {
 
   const filtered = list.filter((m) => {
     if (roleFilter !== "ALL" && m.role !== roleFilter) return false;
-    if (typeFilter !== "ALL" && m.type !== typeFilter) return false;
-    return true;
+    return !(typeFilter !== "ALL" && m.type !== typeFilter);
   });
 
   const startEdit = (m: MemberResponseDTO) => {
