@@ -3,6 +3,7 @@ import logo from "@assets/logo.svg";
 import codeIcon from "@assets/code.svg";
 import usersIcon from "@assets/users.svg";
 import trendingUpIcon from "@assets/trending-up.svg";
+import calendarIcon from "@assets/calendar.svg";
 import { RecruitButton } from "@components/RecruitButton.tsx";
 import { Link } from "react-router-dom";
 import { CONFIG } from "@utils/config.ts";
@@ -10,6 +11,23 @@ import { CONFIG } from "@utils/config.ts";
 function MainPage() {
   return (
     <div className="main-page">
+
+      <div className="recruit-time">
+        <p className="recruit-title">
+          <img src={calendarIcon} alt="면접" />면접 일정</p>
+        <div className="recruit-time-box">
+          <p>
+            <span className="highlight">{CONFIG.YEAR}년 3월 16일 (월요일)</span>
+          </p>
+          <p>
+            <span className="highlight">6교시</span>에 면접을 진행합니다.
+          </p>
+
+          <p className="recruit-location">
+            장소: <span className="highlight">3월 14일 (목요일)</span> 공개
+          </p>
+        </div>
+      </div>
 
       <section className="pages home" id="home">
         <div className="home-left">
