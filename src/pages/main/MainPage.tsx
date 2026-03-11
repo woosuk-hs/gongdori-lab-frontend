@@ -22,9 +22,8 @@ function MainPage() {
           <p>
             <span className="highlight">6교시</span>에 면접을 진행합니다.
           </p>
-
           <p className="recruit-location">
-            장소: <span className="highlight">3월 14일 (목요일)</span> 공개
+            장소: <span className="highlight">본관 4층 홈베이스</span>
           </p>
         </div>
       </div>
