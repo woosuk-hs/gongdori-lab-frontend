@@ -17,13 +17,10 @@ function MainPage() {
           <img src={calendarIcon} alt="면접" />면접 일정</p>
         <div className="recruit-time-box">
           <p>
-            <span className="highlight">{CONFIG.YEAR}년 3월 16일 (월요일)</span>
-          </p>
-          <p>
-            <span className="highlight">6교시</span>에 면접을 진행합니다.
-          </p>
-          <p className="recruit-location">
-            장소: <span className="highlight">본관 4층 홈베이스</span>
+            <span className="highlight">{CONFIG.YEAR}년 3월 16일 (월요일)</span><br/>
+            <span className="highlight">6교시</span>에 면접을 진행합니다.<br/>
+            장소: <span className="highlight">본관 4층 홈베이스</span><br/>
+            준비물: <span className="highlight">스마트폰, 필기구</span>
           </p>
         </div>
       </div>
@@ -39,6 +36,7 @@ function MainPage() {
           <div className="buttons">
             <RecruitButton />
             <a href="https://github.com/woosuk-hs" target="_blank" rel="noreferrer" className="btn-ghost">GitHub</a>
+            {/*<a href="https://github.com/woosuk-hs/gongdori-lab-backend/blob/main/%EC%9E%85%EB%8B%A8%ED%85%8C%EC%8A%A4%ED%8A%B8.jpg" target="_blank" rel="noreferrer" className="btn-ghost">문제 바로가기</a>*/}
           </div>
         </div>
       </section>

@@ -60,12 +60,6 @@
     font-weight: 700;
     color: var(--link-text);
 }
-
-.recruit-location {
-    margin-top: 10px;
-    font-size: 15px;
-    color: var(--link-text);
-}
 /*면접이 종료 된 후 삭제하는 - end */
 
 .home-left {
