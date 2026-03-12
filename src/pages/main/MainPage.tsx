@@ -20,7 +20,7 @@ function MainPage() {
             <span className="highlight">{CONFIG.YEAR}년 3월 16일 (월요일) 6교시</span><br/>
             장소: <span className="highlight">본관 4층 홈베이스</span><br/>
             준비물: <span className="highlight">스마트폰, 필기구</span><br/>
-            <span className="recruit-warning">쉬는 시간 이전 참석</span>
+            <span className="recruit-warning">6교시 이전 참석</span>
           </p>
         </div>
       </div>
