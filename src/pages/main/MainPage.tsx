@@ -35,7 +35,7 @@ function MainPage() {
           <p>미래를 만들어가는 개발자들의 공간</p>
           <div className="buttons">
             <RecruitButton />
-            <a href="https://github.com/woosuk-hs" target="_blank" rel="noreferrer" className="btn-ghost">GitHub</a>
+            {/*<a href="https://github.com/woosuk-hs" target="_blank" rel="noreferrer" className="btn-ghost">GitHub</a>*/}
             <a href="https://github.com/woosuk-hs/gongdori-lab-backend/blob/main/%EC%9E%85%EB%8B%A8%ED%85%8C%EC%8A%A4%ED%8A%B8.jpg" target="_blank" rel="noreferrer" className="btn-ghost">문제 바로가기</a>
           </div>
         </div>
