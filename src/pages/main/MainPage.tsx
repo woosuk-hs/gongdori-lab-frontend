@@ -17,10 +17,10 @@ function MainPage() {
           <img src={calendarIcon} alt="면접" />면접 일정</p>
         <div className="recruit-time-box">
           <p>
-            <span className="highlight">{CONFIG.YEAR}년 3월 16일 (월요일)</span><br/>
-            <span className="highlight">6교시</span>에 면접을 진행합니다.<br/>
+            <span className="highlight">{CONFIG.YEAR}년 3월 16일 (월요일) 6교시</span><br/>
             장소: <span className="highlight">본관 4층 홈베이스</span><br/>
-            준비물: <span className="highlight">스마트폰, 필기구</span>
+            준비물: <span className="highlight">스마트폰, 필기구</span><br/>
+            <p className="recruit-warning">쉬는 시간 이전 참석</p>
           </p>
         </div>
       </div>
