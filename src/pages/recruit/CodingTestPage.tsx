@@ -6,7 +6,7 @@ function CodingTestPage() {
       <Helmet>
         <title>지원 문제</title>
       </Helmet>
-      <img src="/images/test.jpg" />
+      <img src="/images/test.jpg" alt="Gongdori recruit test" />
     </>
   )
 }
