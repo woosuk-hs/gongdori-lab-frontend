@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { api } from "@utils/api.ts";
 import "./styles/ProfileEditPage.css";
 import * as React from "react";
+import {Helmet} from "react-helmet-async";
 
 interface MemberResponseDTO {
   username: string;
@@ -76,93 +77,95 @@ function ProfileEditPage() {
   };
 
   return (
-    <div className="edit-page">
-      <div className="edit-card">
-        <div className="edit-card__header">
-          <span className="edit-card__eyebrow">MY ACCOUNT</span>
-          <h1 className="edit-card__title">프로필 수정</h1>
-        </div>
+    <>
+      <Helmet>
+        <title>프로필 수정</title>
+      </Helmet>
 
-        <form className="edit-form" onSubmit={handleSubmit}>
-          <div className="edit-field">
-            <label htmlFor="username">아이디</label>
-            <input
-              id="username"
-              type="text"
-              placeholder="변경할 아이디를 입력하세요 (영어 소문자, 숫자)"
-              value={form.username}
-              onChange={(e) => {
-                const val = e.target.value.replace(/[^a-z0-9]/g, "");
-                setForm((p) => ({ ...p, username: val }));
-              }}
-            />
-            {form.username && !usernameValid && (
-              <span className="edit-hint error">영어 소문자와 숫자만 입력 가능합니다.</span>
-            )}
+      <div className="edit-page">
+        <div className="edit-card">
+          <div className="edit-card__header">
+            <span className="edit-card__eyebrow">MY ACCOUNT</span>
+            <h1 className="edit-card__title">프로필 수정</h1>
           </div>
 
-          <div className="edit-field">
-            <label htmlFor="github">GitHub 사용자명</label>
-            <div className="edit-input-prefix">
-              <span>github.com/</span>
+          <form className="edit-form" onSubmit={handleSubmit}>
+            <div className="edit-field">
+              <label htmlFor="username">아이디</label>
               <input
-                id="github"
+                id="username"
                 type="text"
-                placeholder="username"
-                value={form.github}
-                onChange={set("github")}
-              />
+                placeholder="변경할 아이디를 입력하세요 (영어 소문자, 숫자)"
+                value={form.username}
+                onChange={(e) => {
+                  const val = e.target.value.replace(/[^a-z0-9]/g, "");
+                  setForm((p) => ({...p, username: val}));
+                }}/>
+              {form.username && !usernameValid && (
+                <span className="edit-hint error">영어 소문자와 숫자만 입력 가능합니다.</span>
+              )}
             </div>
-          </div>
 
-          <div className="edit-divider" />
+            <div className="edit-field">
+              <label htmlFor="github">GitHub 사용자명</label>
+              <div className="edit-input-prefix">
+                <span>github.com/</span>
+                <input
+                  id="github"
+                  type="text"
+                  placeholder="username"
+                  value={form.github}
+                  onChange={set("github")}/>
+              </div>
+            </div>
 
-          <div className="edit-field">
-            <label htmlFor="password">
-              새 비밀번호 <span className="edit-optional">(변경 시에만)</span>
-            </label>
-            <input
-              id="password"
-              type="password"
-              placeholder="8자 이상 입력하세요"
-              value={form.password}
-              onChange={set("password")}
-            />
-            {form.password && !passwordValid && (
-              <span className="edit-hint error">비밀번호는 8자 이상이어야 합니다.</span>
-            )}
-          </div>
+            <div className="edit-divider"/>
 
-          <div className="edit-field">
-            <label htmlFor="passwordConfirm">새 비밀번호 확인</label>
-            <input
-              id="passwordConfirm"
-              type="password"
-              placeholder="새 비밀번호를 다시 입력하세요"
-              value={form.passwordConfirm}
-              onChange={set("passwordConfirm")}
-            />
-            {form.passwordConfirm && form.password !== form.passwordConfirm && (
-              <span className="edit-hint error">비밀번호가 일치하지 않습니다.</span>
-            )}
-            {form.passwordConfirm && form.password === form.passwordConfirm && form.passwordConfirm && (
-              <span className="edit-hint success">비밀번호가 일치합니다.</span>
-            )}
-          </div>
+            <div className="edit-field">
+              <label htmlFor="password">
+                새 비밀번호 <span className="edit-optional">(변경 시에만)</span>
+              </label>
+              <input
+                id="password"
+                type="password"
+                placeholder="8자 이상 입력하세요"
+                value={form.password}
+                onChange={set("password")}/>
+              {form.password && !passwordValid && (
+                <span className="edit-hint error">비밀번호는 8자 이상이어야 합니다.</span>
+              )}
+            </div>
 
-          {error && <p className="edit-error">{error}</p>}
+            <div className="edit-field">
+              <label htmlFor="passwordConfirm">새 비밀번호 확인</label>
+              <input
+                id="passwordConfirm"
+                type="password"
+                placeholder="새 비밀번호를 다시 입력하세요"
+                value={form.passwordConfirm}
+                onChange={set("passwordConfirm")}/>
+              {form.passwordConfirm && form.password !== form.passwordConfirm && (
+                <span className="edit-hint error">비밀번호가 일치하지 않습니다.</span>
+              )}
+              {form.passwordConfirm && form.password === form.passwordConfirm && form.passwordConfirm && (
+                <span className="edit-hint success">비밀번호가 일치합니다.</span>
+              )}
+            </div>
 
-          <div className="edit-actions">
-            <button type="button" className="edit-cancel" onClick={() => navigate("/profile")}>
-              취소
-            </button>
-            <button type="submit" className="edit-submit" disabled={loading}>
-              {loading ? "저장 중..." : "저장하기"}
-            </button>
-          </div>
-        </form>
+            {error && <p className="edit-error">{error}</p>}
+
+            <div className="edit-actions">
+              <button type="button" className="edit-cancel" onClick={() => navigate("/profile")}>
+                취소
+              </button>
+              <button type="submit" className="edit-submit" disabled={loading}>
+                {loading ? "저장 중..." : "저장하기"}
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 

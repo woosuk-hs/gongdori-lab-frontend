@@ -24,13 +24,14 @@ function Navbar() {
       <nav className="navbar">
         <div className="navbar-inner">
 
-          <Link to="/" className="nav-logo" onClick={closeMenu}>
-            <img src="/images/logo.svg" alt="logo" />
+          <Link to="/" className="nav-brand" onClick={closeMenu}>
+            <img src="/images/logo.svg" alt="Gongdori logo" />
+            <span>Gongdori</span>
           </Link>
 
           <div className={`nav-menu ${open ? "open" : ""}`}>
             <ul className="nav-list">
-              <li><Link to="/" onClick={closeMenu}>준비중</Link></li>
+              <li><Link to="/test" onClick={closeMenu}>문제 바로가기</Link></li>
               <li><Link to="/" onClick={closeMenu}>준비중</Link></li>
               <li><Link to="/" onClick={closeMenu}>준비중</Link></li>
               <li onClick={closeMenu}>

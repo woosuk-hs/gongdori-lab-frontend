@@ -2,6 +2,7 @@ import { useState, type SyntheticEvent } from "react";
 import { useNavigate, Link, useLocation } from "react-router-dom";
 import { LoginAPI } from "./api/loginAPI";
 import "./styles/LoginPage.css";
+import {Helmet} from "react-helmet-async";
 
 function LoginPage() {
   const navigate = useNavigate();
@@ -31,73 +32,76 @@ function LoginPage() {
   };
 
   return (
-    <div className="login-page">
-      <div className="login-card">
-        <div className="login-card__header">
-          <span className="login-card__eyebrow">WELCOME BACK</span>
-          <h1 className="login-card__title">로그인</h1>
-        </div>
+    <>
+      <Helmet>
+        <title>Login</title>
+      </Helmet>
 
-        {joined && (
-          <p className="login-joined">가입이 완료되었습니다. 로그인해주세요.</p>
-        )}
-
-        <form className="login-form" onSubmit={handleLogin}>
-          <div className="login-field">
-            <label htmlFor="username">아이디</label>
-            <input
-              id="username"
-              type="text"
-              placeholder="아이디를 입력하세요"
-              value={username}
-              onChange={(e) => setUsername(e.currentTarget.value)}
-              required
-            />
+      <div className="login-page">
+        <div className="login-card">
+          <div className="login-card__header">
+            <span className="login-card__eyebrow">WELCOME BACK</span>
+            <h1 className="login-card__title">로그인</h1>
           </div>
 
-          <div className="login-field">
-            <label htmlFor="password">비밀번호</label>
-            <div className="login-password-wrap">
+          {joined && (
+            <p className="login-joined">가입이 완료되었습니다. 로그인해주세요.</p>
+          )}
+
+          <form className="login-form" onSubmit={handleLogin}>
+            <div className="login-field">
+              <label htmlFor="username">아이디</label>
               <input
-                id="password"
-                type={showPassword ? "text" : "password"}
-                placeholder="비밀번호를 입력하세요"
-                value={password}
-                onChange={(e) => setPassword(e.currentTarget.value)}
-                required
-              />
-              <button
-                type="button"
-                className="login-password-toggle"
-                onClick={() => setShowPassword((p) => !p)}
-                tabIndex={-1}
-              >
-                {showPassword ? "숨기기" : "보기"}
-              </button>
+                id="username"
+                type="text"
+                placeholder="아이디를 입력하세요"
+                value={username}
+                onChange={(e) => setUsername(e.currentTarget.value)}
+                required/>
             </div>
-          </div>
 
-          <label className="login-remember">
-            <input
-              type="checkbox"
-              checked={rememberMe}
-              onChange={(e) => setRememberMe(e.currentTarget.checked)}
-            />
-            로그인 상태 유지
-          </label>
+            <div className="login-field">
+              <label htmlFor="password">비밀번호</label>
+              <div className="login-password-wrap">
+                <input
+                  id="password"
+                  type={showPassword ? "text" : "password"}
+                  placeholder="비밀번호를 입력하세요"
+                  value={password}
+                  onChange={(e) => setPassword(e.currentTarget.value)}
+                  required/>
+                <button
+                  type="button"
+                  className="login-password-toggle"
+                  onClick={() => setShowPassword((p) => !p)}
+                  tabIndex={-1}
+                >
+                  {showPassword ? "숨기기" : "보기"}
+                </button>
+              </div>
+            </div>
 
-          {error && <p className="login-error">{error}</p>}
+            <label className="login-remember">
+              <input
+                type="checkbox"
+                checked={rememberMe}
+                onChange={(e) => setRememberMe(e.currentTarget.checked)}/>
+              로그인 상태 유지
+            </label>
 
-          <button type="submit" className="login-submit" disabled={loading}>
-            {loading ? "로그인 중..." : "로그인"}
-          </button>
-        </form>
+            {error && <p className="login-error">{error}</p>}
 
-        <p className="login-footer">
-          계정이 없으신가요? <Link to="/join">회원가입</Link>
-        </p>
+            <button type="submit" className="login-submit" disabled={loading}>
+              {loading ? "로그인 중..." : "로그인"}
+            </button>
+          </form>
+
+          <p className="login-footer">
+            계정이 없으신가요? <Link to="/join">회원가입</Link>
+          </p>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 
