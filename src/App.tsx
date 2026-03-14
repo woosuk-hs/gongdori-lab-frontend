@@ -28,7 +28,6 @@ function App() {
       <Route element={<Layout />}>
         <Route path="/" element={<MainPage />} />
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/recruit" element={<RecruitPage />} />
         <Route path="/recruit/check" element={<RecruitCheckPage />} />
         <Route path="/recruit/done" element={<RecruitDonePage />} />
         <Route path="/join" element={<JoinPage />} />
@@ -41,6 +40,7 @@ function App() {
         </Route>
 
         <Route element={<PrivateRoute requireAdmin />}>
+          <Route path="/recruit" element={<RecruitPage />} />
           <Route path="/recruit/admin" element={<RecruitAdminPage />} />
           <Route path="/recruit/:studentId" element={<RecruitDetailPage />} />
           <Route path="/members/admin" element={<MemberAdminPage />} />
