@@ -22,7 +22,7 @@ function Footer() {
         <div className="footer-links">
           <div className="footer-col">
             <h4>동아리</h4>
-            <Link to="/recruit">Join {CONFIG.YEAR}</Link>
+            { CONFIG.RECRUIT && <Link to="/recruit">Join {CONFIG.YEAR}</Link> }
             <Link to="/members">Members</Link>
           </div>
           <div className="footer-col">
