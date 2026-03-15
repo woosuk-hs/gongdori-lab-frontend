@@ -21,6 +21,7 @@ function MainPage() {
             <span className="highlight">{CONFIG.YEAR}년 3월 16일 (월요일) 6교시</span><br/>
             장소: <span className="highlight">본관 4층 홈베이스</span><br/>
             준비물: <span className="highlight">스마트폰, 필기구</span><br/>
+            합격자 확인일자: <span className="highlight">3월 17일 00시</span><br />
             <span className="recruit-warning">6교시 이전 참석</span>
           </p>
         </div>
@@ -70,7 +71,10 @@ function MainPage() {
         <div className="join-inner">
           <span className="section-eyebrow">RECRUITMENT {CONFIG.YEAR}</span>
           <h2 className="section-title">함께하고 싶나요?</h2>
-          <p className="join-desc">Gongdori는 열정 있는 개발자를 기다리고 있어요.<br />언어나 경험에 상관없이 배우고자 하는 마음이면 충분해요.</p>
+          <p className="join-desc">
+            Gongdori는 열정 있는 개발자를 기다리고 있어요.<br />
+            언어나 경험에 상관없이 배우고자 하는 마음이면 충분해요.
+          </p>
           <div className="join-actions">
             <RecruitButton />
             <Link to="/recruit/check" className="btn-ghost">합격 확인</Link>
