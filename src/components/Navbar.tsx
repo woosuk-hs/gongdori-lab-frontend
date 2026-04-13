@@ -31,7 +31,7 @@ function Navbar() {
 
           <div className={`nav-menu ${open ? "open" : ""}`}>
             <ul className="nav-list">
-              <li><Link to="/test" onClick={closeMenu}>문제 바로가기</Link></li>
+              <li><Link to="/" onClick={closeMenu}>준비중</Link></li>
               <li><Link to="/" onClick={closeMenu}>준비중</Link></li>
               <li><Link to="/" onClick={closeMenu}>준비중</Link></li>
               <li onClick={closeMenu}>

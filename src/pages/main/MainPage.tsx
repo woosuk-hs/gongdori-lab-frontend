@@ -22,7 +22,7 @@ function MainPage() {
           <div className="buttons">
             <RecruitButton />
             <a href="https://github.com/woosuk-hs" target="_blank" rel="noreferrer" className="btn-ghost">GitHub</a>
-            <Link to="/test" target="_blank" rel="noreferrer" className="btn-ghost">문제 바로가기</Link>
+            {/*<Link to="/test" target="_blank" rel="noreferrer" className="btn-ghost">문제 바로가기</Link>*/}
           </div>
         </div>
       </section>
